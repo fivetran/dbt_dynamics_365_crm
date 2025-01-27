@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+  - name: dynamics_365_crm 
+    database: "{% if target.type not in ('spark') %}{{ var('dynamics_365_crm_database', target.database) }}{% endif %}"
+    schema: "{{ var('dynamics_365_crm_schema', 'dynamics_365')}}"
+
+    loader: fivetran
+    loaded_at_field: _fivetran_synced
+      
+    freshness:
+      warn_after: {count: 72, period: hour}
+      error_after: {count: 96, period: hour}
+
+    tables:
+      - name: account
+        identifier: "{{ var('dynamics_365_crm_account_identifier', 'account')}}"
+      - name: appointment
+        identifier: "{{ var('dynamics_365_crm_appointment_identifier', 'appointment')}}"
+      - name: contact
+        identifier: "{{ var('dynamics_365_crm_contact_identifier', 'contact')}}"
+      - name: incident
+        identifier: "{{ var('dynamics_365_crm_incident_identifier', 'incident')}}"
+      - name: opportunity
+        identifier: "{{ var('dynamics_365_crm_opportunity_identifier', 'opportunity')}}"
+      - name: phonecall
+        identifier: "{{ var('dynamics_365_crm_phonecall_identifier', 'phonecall')}}"
+      - name: stringmap
+        identifier: "{{ var('dynamics_365_crm_stringmap_identifier', 'stringmap')}}"
+      - name: user
+        identifier: "{{ var('dynamics_365_crm_user_identifier', 'user')}}"

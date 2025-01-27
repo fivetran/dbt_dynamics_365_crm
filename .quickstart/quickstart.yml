@@ -1,0 +1,36 @@
+database_key: dynamics_365_crm_database
+schema_key: dynamics_365_crm_schema
+
+dbt_versions: ">=1.3.0 <2.0.0"
+
+table_variables:
+  dynamics_365_crm_using_account:
+    - account
+  dynamics_365_crm_using_appointment:
+    - appointment
+  dynamics_365_crm_using_contact:
+    - contact
+  dynamics_365_crm_using_incident:
+    - incident
+  dynamics_365_crm_using_opportunity:
+    - opportunity
+  dynamics_365_crm_using_phonecall:
+    - phonecall
+  dynamics_365_crm_using_user:
+    - user
+
+destination_configurations:
+  databricks:
+    dispatch:
+      - macro_namespace: dbt_utils
+        search_order: [ 'spark_utils', 'dbt_utils' ]
+
+public_models: [
+  "account",
+  "appointment",
+  "contact",
+  "incident",
+  "opportunity",
+  "phonecall",
+  "user"
+]

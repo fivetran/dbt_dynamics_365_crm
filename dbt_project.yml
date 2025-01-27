@@ -1,0 +1,13 @@
+name: 'dynamics_365_crm'
+version: '0.1.0'
+config-version: 2
+require-dbt-version: [">=1.3.0", "<2.0.0"]
+
+models:
+  dynamics_365_crm:
+    +materialized: table
+    +schema: dynamics_365_crm
+
+vars:
+  dynamics_365_crm:
+    stringmap: "{{ source('dynamics_365_crm', 'stringmap') }}"

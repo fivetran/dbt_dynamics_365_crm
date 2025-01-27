@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: account
+  - name: appointment
+  - name: contact
+  - name: incident
+  - name: opportunity
+  - name: phonecall
+  - name: user
