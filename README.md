@@ -1,4 +1,4 @@
-# Fivetran Platform dbt Package ([Docs](https://fivetran.github.io/dbt_fivetran_log/))
+# Microsoft Dynamics 365 CRM dbt Package ([Docs](https://fivetran.github.io/dbt_dynamics_365_crm/))
 
 <p align="left">
     <a alt="License"
@@ -15,17 +15,15 @@
         <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
 
-# Microsoft Dynamics 365 CRM dbt Package ([Docs](https://fivetran.github.io/dbt_dynamics_365_crm /))
-
 ## What does this dbt package do?
 
-This package models Microsoft Dynamics 365 CRM data from [Fivetran's connector](https://fivetran.com/docs/connectors/applications/microsoft-dynamics/dynamics365CRM ). It uses data in the format described by [this ERD](https://fivetran.com/docs/connectors/applications/microsoft-dynamics/dynamics365CRM #schemainformation).
+This package models Microsoft Dynamics 365 CRM data from [Fivetran's connector](https://fivetran.com/docs/connectors/applications/microsoft-dynamics/dynamics365crm). It uses data in the format described by [this ERD](https://fivetran.com/docs/connectors/applications/microsoft-dynamics/dynamics365crm#schemainformation).
 
 The main focus of the package is to...
 
 <!--section="salesforce_marketing_cloud_transformation_model"-->
 The following table provides a detailed list of all models materialized within this package by default.
-> TIP: See more details about these tables in the package's [dbt docs site](https://fivetran.github.io/dbt_dynamics_365_crm /#!/overview).
+> TIP: See more details about these tables in the package's [dbt docs site](https://fivetran.github.io/dbt_dynamics_365_crm/#!/overview).
 
 | **Table** | **Description**|
 | --------- | -------------- |
@@ -128,5 +126,5 @@ A small team of analytics engineers at Fivetran develops these dbt packages. How
 We highly encourage and welcome contributions to this package. Check out [this dbt Discourse article](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) on the best workflow for contributing to a package.
 
 ## Are there any resources available?
-- If you have questions or want to reach out for help, see the [GitHub Issue](https://github.com/fivetran/dbt_dynamics_365_crm /issues/new/choose) section to find the right avenue of support for you.
+- If you have questions or want to reach out for help, see the [GitHub Issue](https://github.com/fivetran/dbt_dynamics_365_crm/issues/new/choose) section to find the right avenue of support for you.
 - If you would like to provide feedback to the dbt package team at Fivetran or would like to request a new dbt package, fill out our [Feedback Form](https://www.surveymonkey.com/r/DQ7K7WW).
