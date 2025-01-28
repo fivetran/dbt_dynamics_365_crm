@@ -20,6 +20,6 @@ dbt seed --target "$db" --full-refresh
 dbt run --target "$db" --full-refresh
 dbt test --target "$db"
 dbt run --vars '{dynamics_365_crm_using_contact: false, dynamics_365_crm_using_phonecall: false}' --full-refresh --target "$db" --full-refresh
-dbt test --target "$db" --full-refresh
+dbt test --target "$db"
 
 dbt run-operation fivetran_utils.drop_schemas_automation --target "$db"
