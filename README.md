@@ -21,7 +21,7 @@ This package models Microsoft Dynamics 365 CRM data from [Fivetran's connector](
 
 The main focus of the package is to enhance the Microsoft Dynamics 365 CRM data by adding human-readable labels for fields that store coded values (e.g., integer codes or option sets). This package integrates stringmaps into the source tables, translating codes into meaningful labels.
 
-<!--section="salesforce_marketing_cloud_transformation_model"-->
+<!--section="dynamics_365_crm_transformation_model"-->
 The following table provides a detailed list of all models materialized within this package by default.
 > TIP: See more details about these tables in the package's [dbt docs site](https://fivetran.github.io/dbt_dynamics_365_crm/#!/overview).
 
@@ -98,8 +98,6 @@ models:
 #### Change the source table references
 If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
 
-> IMPORTANT: See this project's [`dbt_project.yml`](https://github.com/fivetran/dbt_dynamics_365_crm/blob/main/dbt_project.yml) variable declarations to see the expected names.
-
 ```yml
 vars:
     dynamics_365_crm_<default_source_table_name>_identifier: your_table_name 
@@ -128,7 +126,7 @@ packages:
 ```
 ## How is this package maintained and can I contribute?
 ### Package Maintenance
-The Fivetran team maintaining this package _only_ maintains the latest version of the package. We highly recommend you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/salesforce_marketing_cloud/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_dynamics_365_crm /blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
+The Fivetran team maintaining this package _only_ maintains the latest version of the package. We highly recommend you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/dynamics_365_crm/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_dynamics_365_crm/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
 
 ### Contributions
 A small team of analytics engineers at Fivetran develops these dbt packages. However, the packages are made better by community contributions.
