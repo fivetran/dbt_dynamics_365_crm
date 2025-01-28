@@ -15,18 +15,6 @@ vars:
     dynamics_365_crm_stringmap_identifier: "stringmap_data"
     dynamics_365_crm_systemuser_identifier: "systemuser_data"
 
-seeds:
-  dynamics_365_crm_integration_tests:
-    +column_types:
-      accountid: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
-      appointmentid: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
-      contactid: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
-      incidentid: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
-      opportunityid: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
-      phonecallid: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
-      stringmapid: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
-      systemuserid: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
-
 dispatch:
   - macro_namespace: dbt_utils
     search_order: ['spark_utils', 'dbt_utils']
