@@ -18,7 +18,14 @@ vars:
 seeds:
   dynamics_365_crm_integration_tests:
     +column_types:
-      id: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
+      accountid: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
+      appointmentid: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
+      contactid: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
+      incidentid: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
+      opportunityid: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
+      phonecallid: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
+      stringmapid: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
+      systemuserid: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
 
 dispatch:
   - macro_namespace: dbt_utils
