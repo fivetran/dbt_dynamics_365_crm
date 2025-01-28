@@ -7,8 +7,6 @@ models:
   dynamics_365_crm:
     +materialized: table
     +schema: dynamics_365_crm
-    staging:
-      +materialized: ephemeral
 
 vars:
   dynamics_365_crm:

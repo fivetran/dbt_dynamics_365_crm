@@ -1,4 +1,4 @@
-# Microsoft Dynamics 365 CRM dbt Package ([Docs](https://fivetran.github.io/dbt_dynamics_365_crm/))
+# Dynamics 365 CRM dbt Package ([Docs](https://fivetran.github.io/dbt_dynamics_365_crm/))
 
 <p align="left">
     <a alt="License"
@@ -19,14 +19,24 @@
 
 This package models Microsoft Dynamics 365 CRM data from [Fivetran's connector](https://fivetran.com/docs/connectors/applications/microsoft-dynamics/dynamics365crm). It uses data in the format described by [this ERD](https://fivetran.com/docs/connectors/applications/microsoft-dynamics/dynamics365crm#schemainformation).
 
-The main focus of the package is to...
+The main focus of the package is to enhance the Microsoft Dynamics 365 CRM data by adding human-readable labels for fields that store coded values (e.g., integer codes or option sets). This package integrates stringmaps into the source tables, translating codes into meaningful labels.
 
 <!--section="salesforce_marketing_cloud_transformation_model"-->
 The following table provides a detailed list of all models materialized within this package by default.
 > TIP: See more details about these tables in the package's [dbt docs site](https://fivetran.github.io/dbt_dynamics_365_crm/#!/overview).
 
-| **Table** | **Description**|
-| --------- | -------------- |
+| **Table** | **Description** |
+| --------- | --------------- |
+| [`account`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.account) | Model representing accounts in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values. |
+| [`appointment`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.appointment) | Model representing appointments in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values. |
+| [`contact`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.contact) | Model for contacts in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values. |
+| [`incident`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.incident) | Model for incidents in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values. |
+| [`opportunity`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.opportunity) | Model for opportunities in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values. |
+| [`phonecall`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.phonecall) | Model for phone calls in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values. |
+| [`systemuser`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.systemuser) | Model for system users in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values. |
+
+### Materialized Models
+Each Quickstart transformation job run materializes 7 models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
 
 <!--section-end-->
 
