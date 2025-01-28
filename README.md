@@ -17,7 +17,7 @@
 
 ## What does this dbt package do?
 
-This package models Microsoft Dynamics 365 CRM data from [Fivetran's connector](https://fivetran.com/docs/connectors/applications/microsoft-dynamics/dynamics365crm). It uses data in the format described by [this ERD](https://fivetran.com/docs/connectors/applications/microsoft-dynamics/dynamics365crm#schemainformation).
+This package models Microsoft Dynamics 365 CRM data from [Fivetran's connector](https://fivetran.com/docs/applications/microsoft-dynamics/dynamics365crm). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/microsoft-dynamics/dynamics365crm#schemainformation).
 
 The main focus of the package is to enhance the Microsoft Dynamics 365 CRM data by adding human-readable labels for fields that store coded values (e.g., integer codes or option sets). This package integrates stringmaps into the source tables, translating codes into meaningful labels.
 
@@ -45,7 +45,7 @@ Each Quickstart transformation job run materializes 7 models if all components o
 ### Step 1: Prerequisites
 To use this dbt package, you must have the following:
 
-- At least one Fivetran Microsoft Dynamics 365 CRM connector syncing data into your destination.
+- At least one Fivetran Microsoft Dynamics 365 CRM connection syncing data into your destination.
 - A **BigQuery**, **Snowflake**, **Redshift**, **Databricks**, or **PostgreSQL** destination.
 
 #### Databricks dispatch configuration
