@@ -11,5 +11,5 @@ stringmapid,_fivetran_deleted,attributename,attributevalue,objecttypecode,value
 132,TRUE,name02,19,opportunity,Readable Name 10
 128,FALSE,name01,20,phonecall,Readable Name 11
 128,FALSE,name02,21,phonecall,Readable Name 12
-129,FALSE,name01,22,user,Readable Name 13
-129,FALSE,name02,23,user,Readable Name 14
+129,FALSE,name01,22,systemuser,Readable Name 13
+129,FALSE,name02,23,systemuser,Readable Name 14

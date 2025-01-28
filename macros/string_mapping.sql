@@ -5,7 +5,10 @@
 {% macro default__string_mapping(table_name) %}
     {{ config(enabled=var('dynamics_365_crm_using_' ~ table_name, True)) }}
     {%- set columns = adapter.get_columns_in_relation(source('dynamics_365_crm', table_name)) -%}
-    {%- set attributes = dbt_utils.get_column_values(table=ref('stg_dynamics_365_crm__stringmap'), column='attributename') -%}
+    {%- set attributes = dbt_utils.get_column_values(
+        table=ref('stg_dynamics_365_crm__stringmap'),
+        where="lower(objecttypecode) = '" ~ table_name ~ "'",
+        column='attributename') -%}
 
     {%- set fields = [] -%}
     {%- set non_pivot_fields = [] -%}
@@ -34,7 +37,7 @@
     ), joined as (
         select
             unpivoted.*,
-            coalesce(stringmaps.stringmap_value, unpivoted.fieldvalue) as fieldvalue_name -- coalesce in case there isn't a match
+            stringmaps.stringmap_value as fieldvalue_name
         from unpivoted
         left join stringmaps
         on lower(unpivoted.fieldname) = lower(stringmaps.attributename)

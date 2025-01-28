@@ -7,4 +7,5 @@ models:
   - name: incident
   - name: opportunity
   - name: phonecall
-  - name: user
+  - name: systemuser
+  - name: stg_dynamics_365_crm__stringmap

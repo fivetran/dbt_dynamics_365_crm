@@ -16,8 +16,8 @@ table_variables:
     - opportunity
   dynamics_365_crm_using_phonecall:
     - phonecall
-  dynamics_365_crm_using_user:
-    - user
+  dynamics_365_crm_using_systemuser:
+    - systemuser
 
 destination_configurations:
   databricks:
@@ -32,5 +32,5 @@ public_models: [
   "incident",
   "opportunity",
   "phonecall",
-  "user"
+  "systemuser"
 ]

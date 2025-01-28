@@ -15,17 +15,25 @@ sources:
     tables:
       - name: account
         identifier: "{{ var('dynamics_365_crm_account_identifier', 'account')}}"
+        description: "Table containing businesses that represent customers or potential customers. Includes information about the companies billed in business transactions."
       - name: appointment
         identifier: "{{ var('dynamics_365_crm_appointment_identifier', 'appointment')}}"
+        description: "Table storing commitments representing time intervals, including start/end times and durations."
       - name: contact
         identifier: "{{ var('dynamics_365_crm_contact_identifier', 'contact')}}"
+        description: "Table capturing persons with whom a business unit has relationships, such as customers, suppliers, or colleagues."
       - name: incident
         identifier: "{{ var('dynamics_365_crm_incident_identifier', 'incident')}}"
+        description: "Table tracking service request cases associated with contracts."
       - name: opportunity
         identifier: "{{ var('dynamics_365_crm_opportunity_identifier', 'opportunity')}}"
+        description: "Table representing potential revenue-generating events or sales to accounts that are tracked through the sales process."
       - name: phonecall
         identifier: "{{ var('dynamics_365_crm_phonecall_identifier', 'phonecall')}}"
+        description: "Table used to track activities related to telephone calls."
       - name: stringmap
         identifier: "{{ var('dynamics_365_crm_stringmap_identifier', 'stringmap')}}"
-      - name: user
-        identifier: "{{ var('dynamics_365_crm_user_identifier', 'user')}}"
+        description: "Table mapping option set values (integer codes) to their corresponding string labels for fields across Dynamics 365 CRM tables."
+      - name: systemuser
+        identifier: "{{ var('dynamics_365_crm_systemuser_identifier', 'systemuser')}}"
+        description: "Table storing details of persons with access to the Microsoft CRM system, who own and manage objects in the CRM database."
