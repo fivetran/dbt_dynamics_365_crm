@@ -6,7 +6,7 @@
     {{ config(enabled=var('dynamics_365_crm_using_' ~ table_name, True)) }}
     {%- set columns = adapter.get_columns_in_relation(source('dynamics_365_crm', table_name)) -%}
     {%- set attributes = dbt_utils.get_column_values(
-        table=ref('stg_dynamics_365_crm__stringmap'),
+        table=source('dynamics_365_crm', 'stringmap'),
         where="lower(objecttypecode) = '" ~ table_name ~ "'",
         column='attributename') -%}
 
@@ -30,9 +30,16 @@
         ) }}
 
     ), stringmaps as (
-        select *
-        from {{ ref('stg_dynamics_365_crm__stringmap') }}
+
+        select
+            stringmapid,
+            cast(attributevalue as {{ dbt.type_string()}}) as attributevalue,
+            cast(attributename as {{ dbt.type_string()}}) as attributename,
+            cast(objecttypecode as {{ dbt.type_string()}}) as objecttypecode,
+            cast(value as {{ dbt.type_string()}}) as stringmap_value
+        from {{ source('dynamics_365_crm', 'stringmap')}}
         where lower(objecttypecode) = {{ "'" ~ table_name ~ "'" }}
+        and not coalesce(_fivetran_deleted, false)
 
     ), joined as (
         select
