@@ -2,10 +2,18 @@ version: 2
 
 models:
   - name: account
+    description: "Model representing accounts in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
   - name: appointment
+    description: "Model representing appointments in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
   - name: contact
+    description: "Model for contacts in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
   - name: incident
+    description: "Model for incidents in Dynamics 365 CRM, , enriched with human-readable column names for fields with corresponding stringmap values."
   - name: opportunity
+    description: "Model for opportunities in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
   - name: phonecall
+    description: "Model for phone calls in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
   - name: systemuser
+    description: "Model for system users in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
   - name: stg_dynamics_365_crm__stringmap
+    description: "Staging model for the Dynamics 365 CRM stringmap table for use in downstream models."

@@ -12,7 +12,7 @@ integration_tests:
     redshift:
       type: redshift
       host: "{{ env_var('CI_REDSHIFT_DBT_HOST') }}"
-      systemuser: "{{ env_var('CI_REDSHIFT_DBT_systemuser') }}"
+      systemuser: "{{ env_var('CI_REDSHIFT_DBT_USER') }}"
       pass: "{{ env_var('CI_REDSHIFT_DBT_PASS') }}"
       dbname: "{{ env_var('CI_REDSHIFT_DBT_DBNAME') }}"
       port: 5439
@@ -28,7 +28,7 @@ integration_tests:
     snowflake:
       type: snowflake
       account: "{{ env_var('CI_SNOWFLAKE_DBT_ACCOUNT') }}"
-      systemuser: "{{ env_var('CI_SNOWFLAKE_DBT_systemuser') }}"
+      systemuser: "{{ env_var('CI_SNOWFLAKE_DBT_USER') }}"
       password: "{{ env_var('CI_SNOWFLAKE_DBT_PASS') }}"
       role: "{{ env_var('CI_SNOWFLAKE_DBT_ROLE') }}"
       database: "{{ env_var('CI_SNOWFLAKE_DBT_DATABASE') }}"
@@ -38,7 +38,7 @@ integration_tests:
     postgres:
       type: postgres
       host: "{{ env_var('CI_POSTGRES_DBT_HOST') }}"
-      systemuser: "{{ env_var('CI_POSTGRES_DBT_systemuser') }}"
+      systemuser: "{{ env_var('CI_POSTGRES_DBT_USER') }}"
       pass: "{{ env_var('CI_POSTGRES_DBT_PASS') }}"
       dbname: "{{ env_var('CI_POSTGRES_DBT_DBNAME') }}"
       port: 5432
