@@ -1,4 +1,4 @@
-# Dynamics 365 CRM dbt Package ([Docs](https://fivetran.github.io/dbt_dynamics_365_crm/))
+# Microsoft Dynamics 365 CRM dbt Package ([Docs](https://fivetran.github.io/dbt_dynamics_365_crm/))
 
 <p align="left">
     <a alt="License"
