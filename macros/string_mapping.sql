@@ -10,7 +10,7 @@
     {%- set fields = [] -%}
     {%- set non_pivot_fields = [] -%}
     {%- for col in columns -%}
-        {%- if col.name in attributes -%}
+        {%- if col.name | lower in attributes | map('lower') -%}
             {%- do fields.append(col.name) -%}
         {%- else -%}
             {%- do non_pivot_fields.append(col.name) -%}
