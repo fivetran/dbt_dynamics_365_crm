@@ -4,7 +4,7 @@ profile: 'integration_tests'
 config-version: 2
 
 vars:
-  dynamics_365_crm_schema: zz_catherine_test #dynamics_365_crm_integration_tests
+  dynamics_365_crm_schema: dynamics_365_crm_integration_tests
   dynamics_365_crm:
     dynamics_365_crm_account_identifier: "account_data"
     dynamics_365_crm_appointment_identifier: "appointment_data"
