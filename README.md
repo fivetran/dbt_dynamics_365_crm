@@ -76,7 +76,7 @@ vars:
 ```
 
 ### Step 4: Enable/Disable Variables
-By default, this package brings in data the Microsoft Dynamics 365 CRM source tables listed in [`models/src_dynamics_365_crm.yml`](https://github.com/fivetran/dbt_fivetran_log/blob/main/models/src_dynamics_365_crm.yml). However, if you have disabled syncing any of these sources, you will need to add the following configuration to your `dbt_project.yml`:
+By default, this package brings in data from the Microsoft Dynamics 365 CRM source tables listed in [`models/src_dynamics_365_crm.yml`](https://github.com/fivetran/dbt_fivetran_log/blob/main/models/src_dynamics_365_crm.yml). However, if you have disabled syncing any of these sources, you will need to add the following configuration to your `dbt_project.yml`:
 
 ```yml
 vars:
