@@ -1,4 +1,4 @@
-# dbt_dynamics_365_crm v0.1.0
+# dbt_dynamics_365_crm v0.1.0-a1
 This is the initial release of this package.
 
 ## What does this dbt package do?

@@ -62,12 +62,12 @@ Include the following Microsoft Dynamics 365 CRM package version in your `packag
 ```yml
 packages:
   - package: fivetran/dynamics_365_crm
-    version: [">=0.1.0", "<0.2.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: ["0.1.0-a1"]
 ```
 
 ### Step 3: Define database and schema variables
 
-By default, this package runs using your destination and the `dynamics_365_crm` schema. If this is not where your Microsoft Dynamics 365 CRM data is (for example, if your Microsoft Dynamics 365 CRM schema is named `dynamics_365_crm_fivetran`), add the following configuration to your root `dbt_project.yml` file:
+By default, this package runs using your destination and the `dynamics_365` schema. If this is not where your Microsoft Dynamics 365 CRM data is (for example, if your Microsoft Dynamics 365 CRM schema is named `dynamics_365_crm_fivetran`), add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
 vars:
@@ -76,7 +76,7 @@ vars:
 ```
 
 ### Step 4: Enable/Disable Variables
-By default, this package brings in data from a select list of Microsoft Dynamics 365 CRM source tables. However, if you have disabled syncing these sources, you will need to add the following configuration to your `dbt_project.yml`:
+By default, this package brings in data the Microsoft Dynamics 365 CRM source tables listed in [`models/src_dynamics_365_crm.yml`](https://github.com/fivetran/dbt_fivetran_log/blob/main/models/src_dynamics_365_crm.yml). However, if you have disabled syncing any of these sources, you will need to add the following configuration to your `dbt_project.yml`:
 
 ```yml
 vars:
@@ -118,11 +118,8 @@ This dbt package is dependent on the following dbt packages. These dependencies 
     
 ```yml
 packages:
-    - package: fivetran/fivetran_utils
-      version: [">=0.4.0", "<0.5.0"]
-
-    - package: dbt-labs/dbt_utils
-      version: [">=1.0.0", "<2.0.0"]
+  - package: dbt-labs/dbt_utils
+    version: [">=1.0.0", "<2.0.0"]
 ```
 ## How is this package maintained and can I contribute?
 ### Package Maintenance
