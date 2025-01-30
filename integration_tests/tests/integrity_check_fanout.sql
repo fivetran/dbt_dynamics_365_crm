@@ -34,4 +34,4 @@ select
 from source_counts
 inner join mapped_counts
     on source_name = mapped_name
-    and source_row_count != mapped_row_count
+where source_row_count != mapped_row_count

@@ -19,7 +19,7 @@
 
 This package models Microsoft Dynamics 365 CRM data from [Fivetran's connector](https://fivetran.com/docs/applications/microsoft-dynamics/dynamics365crm). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/microsoft-dynamics/dynamics365crm#schemainformation).
 
-The main focus of the package is to enhance the Microsoft Dynamics 365 CRM data by adding human-readable labels for fields that store coded values (e.g., integer codes or option sets). This package integrates stringmaps into the source tables, translating codes into meaningful labels.
+The main focus of the package is to enhance the Microsoft Dynamics 365 CRM data by adding human-readable labels for fields (created as `<field_name>_label`) that store coded values (e.g., integer codes or option sets). This package integrates stringmaps into the source tables, translating codes into meaningful labels.
 
 <!--section="dynamics_365_crm_transformation_model"-->
 The following table provides a detailed list of all models materialized within this package by default.
@@ -27,7 +27,7 @@ The following table provides a detailed list of all models materialized within t
 
 | **Table** | **Description** |
 | --------- | --------------- |
-| [`account`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.account) | Model representing accounts in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values. |
+| [`account`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.account) | Model representing accounts in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap created as `<field_name>_label`. |
 | [`appointment`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.appointment) | Model representing appointments in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values. |
 | [`contact`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.contact) | Model for contacts in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values. |
 | [`incident`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.incident) | Model for incidents in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values. |
@@ -62,7 +62,7 @@ Include the following Microsoft Dynamics 365 CRM package version in your `packag
 ```yml
 packages:
   - package: fivetran/dynamics_365_crm
-    version: ["0.1.0-a1"]
+    version: 0.1.0-a1
 ```
 
 ### Step 3: Define database and schema variables
