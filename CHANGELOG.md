@@ -1,3 +1,12 @@
+# dbt_dynamics_365_crm v0.1.0-a2
+
+PR includes the following updates:
+
+## Feature Updates
+- Included new stringmapped output models. These new output models include:
+    - `email`
+    - `task` 
+
 # dbt_dynamics_365_crm v0.1.0-a1
 This is the initial release of this package.
 

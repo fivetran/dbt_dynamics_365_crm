@@ -3,7 +3,7 @@
     enabled=var('fivetran_validation_tests_enabled', false)
 ) }}
 
-{% set tables_names = ['account', 'appointment', 'contact', 'incident', 'opportunity', 'phonecall', 'systemuser'] %}
+{% set tables_names = ['account', 'appointment', 'contact', 'incident', 'opportunity', 'phonecall', 'email', 'task', 'systemuser'] %}
 
 with source_counts as (
     {% for table_name in tables_names %}
