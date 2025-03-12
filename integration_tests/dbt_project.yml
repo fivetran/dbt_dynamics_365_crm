@@ -14,7 +14,7 @@ vars:
     dynamics_365_crm_opportunity_identifier: "opportunity_data"
     dynamics_365_crm_phonecall_identifier: "phonecall_data"
     dynamics_365_crm_email_identifier: "email_data"
-    dynamics_365_crm_tasl_identifier: "task_data"
+    dynamics_365_crm_task_identifier: "task_data"
     dynamics_365_crm_stringmap_identifier: "stringmap_data"
     dynamics_365_crm_systemuser_identifier: "systemuser_data"
 
