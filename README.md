@@ -33,6 +33,8 @@ The following table provides a detailed list of all models materialized within t
 | [`incident`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.incident) | Model for incidents in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
 | [`opportunity`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.opportunity) | Model for opportunities in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
 | [`phonecall`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.phonecall) | Model for phone calls in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
+| [`email`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.email) | Model for emails in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
+| [`task`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.task) | Model for tasks in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
 | [`systemuser`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.systemuser) | Model for system users in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
 
 ### Materialized Models
@@ -62,7 +64,7 @@ Include the following Microsoft Dynamics 365 CRM package version in your `packag
 ```yml
 packages:
   - package: fivetran/dynamics_365_crm
-    version: 0.1.0-a1
+    version: 0.1.0-a2
 ```
 
 ### Step 3: Define database and schema variables

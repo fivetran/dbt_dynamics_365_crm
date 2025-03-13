@@ -11,5 +11,14 @@ stringmapid,_fivetran_deleted,attributename,attributevalue,objecttypecode,value
 132,TRUE,name02,19,opportunity,Readable Name 10
 128,FALSE,name01,20,phonecall,Readable Name 11
 128,FALSE,name02,21,phonecall,Readable Name 12
+130,FALSE,email_assignee,24,email,New Assignee
+135,FALSE,email_assignee,30,email,A different assignee
+130,FALSE,email_reason,25,email,Email reason here
+136,FALSE,email_reason,31,email,Other email reason here
+131,FALSE,task_status,26,task,In Progress
+133,FALSE,task_status,28,task,In Review
+134,FALSE,task_status,29,task,Blocked
+132,FALSE,task_type,27,task,Task type here
+137,FALSE,task_type,32,task,Other Task type
 129,FALSE,name01,22,systemuser,Readable Name 13
 129,FALSE,name02,23,systemuser,Readable Name 14

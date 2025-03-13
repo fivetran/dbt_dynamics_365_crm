@@ -6,6 +6,7 @@ config-version: 2
 vars:
   # Generate docs using "dbt docs generate --empty-catalog", so seed dummy columns are not listed
   dynamics_365_crm_schema: dynamics_365_crm_integration_tests
+
   dynamics_365_crm:
     dynamics_365_crm_account_identifier: "account_data"
     dynamics_365_crm_appointment_identifier: "appointment_data"
@@ -13,6 +14,8 @@ vars:
     dynamics_365_crm_incident_identifier: "incident_data"
     dynamics_365_crm_opportunity_identifier: "opportunity_data"
     dynamics_365_crm_phonecall_identifier: "phonecall_data"
+    dynamics_365_crm_email_identifier: "email_data"
+    dynamics_365_crm_task_identifier: "task_data"
     dynamics_365_crm_stringmap_identifier: "stringmap_data"
     dynamics_365_crm_systemuser_identifier: "systemuser_data"
 

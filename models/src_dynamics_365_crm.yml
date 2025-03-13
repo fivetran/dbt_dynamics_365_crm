@@ -33,6 +33,14 @@ sources:
         identifier: "{{ var('dynamics_365_crm_phonecall_identifier', 'phonecall') }}"
         description: "Table used to track activities related to telephone calls."
         enabled: "{{ var('dynamics_365_crm_using_phonecall', true) }}"
+      - name: email
+        identifier: "{{ var('dynamics_365_crm_email_identifier', 'email') }}"
+        description: "Table used to track activities related to emails."
+        enabled: "{{ var('dynamics_365_crm_using_email', true) }}"
+      - name: task
+        identifier: "{{ var('dynamics_365_crm_task_identifier', 'task') }}"
+        description: "Table used to track activities related to tasks."
+        enabled: "{{ var('dynamics_365_crm_using_task', true) }}"
       - name: stringmap
         identifier: "{{ var('dynamics_365_crm_stringmap_identifier', 'stringmap') }}"
         description: "Table mapping option set values (integer codes) to their corresponding string labels for fields across Dynamics 365 CRM tables."
