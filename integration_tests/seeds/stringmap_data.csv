@@ -22,3 +22,9 @@ stringmapid,_fivetran_deleted,attributename,attributevalue,objecttypecode,value
 137,FALSE,task_type,32,task,Other Task type
 129,FALSE,name01,22,systemuser,Readable Name 13
 129,FALSE,name02,23,systemuser,Readable Name 14
+138,FALSE,name01,15,msdyn_workorder,Readable Name 15
+139,FALSE,name02,14,msdyn_workorder,Readable Name 16
+140,FALSE,name01,16,msdyn_customerasset,Readable Name 17
+141,FALSE,name02,17,msdyn_customerasset,Readable Name 18
+142,FALSE,name01,36,msdyn_workorderproduct,Readable Name 19
+143,FALSE,name02,67,msdyn_workorderproduct,Readable Name 20

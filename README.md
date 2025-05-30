@@ -30,12 +30,15 @@ The following table provides a detailed list of all models materialized within t
 | [`account`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.account) | Model representing accounts in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap labels created as `<field_name>_label`. |
 | [`appointment`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.appointment) | Model representing appointments in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
 | [`contact`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.contact) | Model for contacts in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
+| [`email`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.email) | Model for emails in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
 | [`incident`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.incident) | Model for incidents in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
+| [`msdyn_customerasset`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.msdyn_customerasset) | Model for customer assets in Dynamics 365 Field Service, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
+| [`msdyn_workorder`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.msdyn_workorder) | Model for work orders in Dynamics 365 Field Service, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
+| [`msdyn_workorderproduct`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.msdyn_workorderproduct) | Model for work order products in Dynamics 365 Field Service, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
 | [`opportunity`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.opportunity) | Model for opportunities in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
 | [`phonecall`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.phonecall) | Model for phone calls in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
-| [`email`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.email) | Model for emails in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
-| [`task`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.task) | Model for tasks in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
 | [`systemuser`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.systemuser) | Model for system users in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
+| [`task`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.task) | Model for tasks in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
 
 ### Materialized Models
 Each Quickstart transformation job run materializes 7 models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
@@ -64,7 +67,7 @@ Include the following Microsoft Dynamics 365 CRM package version in your `packag
 ```yml
 packages:
   - package: fivetran/dynamics_365_crm
-    version: 0.1.0-a2
+    version: 0.1.0-b1
 ```
 
 ### Step 3: Define database and schema variables

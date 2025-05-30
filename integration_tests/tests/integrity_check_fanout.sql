@@ -3,7 +3,8 @@
     enabled=var('fivetran_validation_tests_enabled', false)
 ) }}
 
-{% set tables_names = ['account', 'appointment', 'contact', 'incident', 'opportunity', 'phonecall', 'email', 'task', 'systemuser'] %}
+{% set tables_names = ['account', 'appointment', 'contact', 'incident', 'msdyn_customerasset', 
+    'msdyn_workorderproduct', 'msdyn_workorder', 'opportunity', 'phonecall', 'email', 'task', 'systemuser'] %}
 
 with source_counts as (
     {% for table_name in tables_names %}
@@ -34,4 +35,4 @@ select
 from source_counts
 inner join mapped_counts
     on source_name = mapped_name
-where source_row_count != mapped_row_count
+    and source_row_count != mapped_row_count

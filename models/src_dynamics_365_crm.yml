@@ -21,10 +21,26 @@ sources:
         identifier: "{{ var('dynamics_365_crm_contact_identifier', 'contact') }}"
         description: "Table capturing persons with whom a business unit has relationships, such as customers, suppliers, or colleagues."
         enabled: "{{ var('dynamics_365_crm_using_contact', true) }}"
+      - name: email
+        identifier: "{{ var('dynamics_365_crm_email_identifier', 'email') }}"
+        description: "Table used to track activities related to emails."
+        enabled: "{{ var('dynamics_365_crm_using_email', true) }}"
       - name: incident
         identifier: "{{ var('dynamics_365_crm_incident_identifier', 'incident') }}"
         description: "Table tracking service request cases associated with contracts."
         enabled: "{{ var('dynamics_365_crm_using_incident', true) }}"
+      - name: msdyn_customerasset
+        identifier: "{{ var('dynamics_365_crm_msdyn_customerasset_identifier', 'msdyn_customerasset') }}"
+        description: "Table storing customer-owned assets serviced by the organization, used in Dynamics 365 Field Service."
+        enabled: "{{ var('dynamics_365_crm_using_msdyn_customerasset', true) }}"
+      - name: msdyn_workorder
+        identifier: "{{ var('dynamics_365_crm_msdyn_workorder_identifier', 'msdyn_workorder') }}"
+        description: "Table storing work orders that define service tasks to be performed at a customer location in Dynamics 365 Field Service."
+        enabled: "{{ var('dynamics_365_crm_using_msdyn_workorder', true) }}"
+      - name: msdyn_workorderproduct
+        identifier: "{{ var('dynamics_365_crm_msdyn_workorderproduct_identifier', 'msdyn_workorderproduct') }}"
+        description: "Table storing products associated with a work order in Dynamics 365 Field Service."
+        enabled: "{{ var('dynamics_365_crm_using_msdyn_workorderproduct', true) }}"
       - name: opportunity
         identifier: "{{ var('dynamics_365_crm_opportunity_identifier', 'opportunity') }}"
         description: "Table representing potential revenue-generating events or sales to accounts that are tracked through the sales process."
@@ -33,14 +49,6 @@ sources:
         identifier: "{{ var('dynamics_365_crm_phonecall_identifier', 'phonecall') }}"
         description: "Table used to track activities related to telephone calls."
         enabled: "{{ var('dynamics_365_crm_using_phonecall', true) }}"
-      - name: email
-        identifier: "{{ var('dynamics_365_crm_email_identifier', 'email') }}"
-        description: "Table used to track activities related to emails."
-        enabled: "{{ var('dynamics_365_crm_using_email', true) }}"
-      - name: task
-        identifier: "{{ var('dynamics_365_crm_task_identifier', 'task') }}"
-        description: "Table used to track activities related to tasks."
-        enabled: "{{ var('dynamics_365_crm_using_task', true) }}"
       - name: stringmap
         identifier: "{{ var('dynamics_365_crm_stringmap_identifier', 'stringmap') }}"
         description: "Table mapping option set values (integer codes) to their corresponding string labels for fields across Dynamics 365 CRM tables."
@@ -49,3 +57,7 @@ sources:
         identifier: "{{ var('dynamics_365_crm_systemuser_identifier', 'systemuser') }}"
         description: "Table storing details of persons with access to the Microsoft CRM system, who own and manage objects in the CRM database."
         enabled: "{{ var('dynamics_365_crm_using_systemuser', true) }}"
+      - name: task
+        identifier: "{{ var('dynamics_365_crm_task_identifier', 'task') }}"
+        description: "Table used to track activities related to tasks."
+        enabled: "{{ var('dynamics_365_crm_using_task', true) }}"

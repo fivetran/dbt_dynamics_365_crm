@@ -1,3 +1,15 @@
+# dbt_dynamics_365_crm v0.1.0-b1
+[PR #4](https://github.com/fivetran/dbt_dynamics_365_crm/pull/4) includes the following updates:
+
+## Beta Release
+- This release marks the transition from private preview to beta, making it available to a broader group of users. The feature is still in active development, and currently supports a limited set of tables. If you need access to additional tables, please submit a [feature request](https://github.com/fivetran/dbt_dynamics_365_crm/issues/new/choose).
+
+## Feature Updates
+- Addition of new stringmap output models. These new stringmap tables mirror the existing models by adding human-readable labels for fields (created as `<field_name>_label`) that store coded values (e.g., integer codes or option sets). These new output models include:
+    - `msdyn_customerasset`
+    - `msdyn_workorderproduct`
+    - `msdyn_workorder`
+
 # dbt_dynamics_365_crm v0.1.0-a2
 
 [PR #3](https://github.com/fivetran/dbt_dynamics_365_crm/pull/3) includes the following updates:
