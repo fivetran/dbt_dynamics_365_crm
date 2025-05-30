@@ -7,20 +7,20 @@ vars:
   # Generate docs using "dbt docs generate --empty-catalog", so seed dummy columns are not listed
   dynamics_365_crm_schema: dynamics_365_crm_integration_tests
 
-dynamics_365_crm:
-  dynamics_365_crm_account_identifier: "account_data"
-  dynamics_365_crm_appointment_identifier: "appointment_data"
-  dynamics_365_crm_contact_identifier: "contact_data"
-  dynamics_365_crm_email_identifier: "email_data"
-  dynamics_365_crm_incident_identifier: "incident_data"
-  dynamics_365_crm_msdyn_customerasset_identifier: "msdyn_customerasset_data"
-  dynamics_365_crm_msdyn_workorder_identifier: "msdyn_workorder_data"
-  dynamics_365_crm_msdyn_workorderproduct_identifier: "msdyn_workorderproduct_data"
-  dynamics_365_crm_opportunity_identifier: "opportunity_data"
-  dynamics_365_crm_phonecall_identifier: "phonecall_data"
-  dynamics_365_crm_stringmap_identifier: "stringmap_data"
-  dynamics_365_crm_systemuser_identifier: "systemuser_data"
-  dynamics_365_crm_task_identifier: "task_data"
+  dynamics_365_crm:
+    dynamics_365_crm_account_identifier: "account_data"
+    dynamics_365_crm_appointment_identifier: "appointment_data"
+    dynamics_365_crm_contact_identifier: "contact_data"
+    dynamics_365_crm_email_identifier: "email_data"
+    dynamics_365_crm_incident_identifier: "incident_data"
+    dynamics_365_crm_msdyn_customerasset_identifier: "msdyn_customerasset_data"
+    dynamics_365_crm_msdyn_workorder_identifier: "msdyn_workorder_data"
+    dynamics_365_crm_msdyn_workorderproduct_identifier: "msdyn_workorderproduct_data"
+    dynamics_365_crm_opportunity_identifier: "opportunity_data"
+    dynamics_365_crm_phonecall_identifier: "phonecall_data"
+    dynamics_365_crm_stringmap_identifier: "stringmap_data"
+    dynamics_365_crm_systemuser_identifier: "systemuser_data"
+    dynamics_365_crm_task_identifier: "task_data"
 
 models:
   +schema: "dynamics_365_crm_{{ var('directed_schema','dev') }}"
