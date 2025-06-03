@@ -2,7 +2,7 @@
 
 <p align="left">
     <a alt="License"
-        href="https://github.com/fivetran/dbt_fivetran_log/blob/main/LICENSE">
+        href="https://github.com/fivetran/dbt_dynamics_365_crm/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
     <a alt="dbt-core">
         <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0_<2.0.0-orange.svg" /></a>
@@ -81,7 +81,7 @@ vars:
 ```
 
 ### Step 4: Enable/Disable Variables
-By default, this package brings in data from the Microsoft Dynamics 365 CRM source tables listed in [`models/src_dynamics_365_crm.yml`](https://github.com/fivetran/dbt_fivetran_log/blob/main/models/src_dynamics_365_crm.yml). However, if you have disabled syncing any of these sources, you will need to add the following configuration to your `dbt_project.yml`:
+By default, this package brings in data from the Microsoft Dynamics 365 CRM source tables listed in [`models/src_dynamics_365_crm.yml`](https://github.com/fivetran/dbt_dynamics_365_crm/blob/main/models/src_dynamics_365_crm.yml). However, if you have disabled syncing any of these sources, you will need to add the following configuration to your `dbt_project.yml`:
 
 ```yml
 vars:
