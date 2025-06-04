@@ -33,7 +33,7 @@
             value_name='fieldvalue'
         ) }}
 
-    {%- set stringmap_columns = adapter.get_columns_in_relation(source('dynamics_365_crm', 'stringmap')) | map(attribute='name') | list -%}
+    {%- set stringmap_columns = adapter.get_columns_in_relation(source('dynamics_365_crm', 'stringmap')) | map(attribute='name') | map('lower') | list -%}
     {%- set attribute_column = 'renamed_attributename' if 'renamed_attributename' in stringmap_columns else 'attributename' -%}
     ), stringmaps as (
         select
