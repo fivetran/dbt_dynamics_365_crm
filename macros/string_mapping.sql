@@ -5,12 +5,11 @@
 {% macro default__string_mapping(table_name) %}
     {{ config(enabled=var('dynamics_365_crm_using_' ~ table_name, True)) }}
     {%- set columns = adapter.get_columns_in_relation(source('dynamics_365_crm', table_name)) -%}
-    {%- set attribute_column = 'renamed_attributename' if 'renamed_attributename' in columns else 'attributename' -%}
     {# Retrieves the attribute names available for the subject table #}
     {%- set attributes = dbt_utils.get_column_values(
         table=source('dynamics_365_crm', 'stringmap'),
         where="lower(objecttypecode) = '" ~ table_name ~ "'",
-        column=attribute_column
+        column='attributename'
         ) -%}
 
     {# Create two lists: 1. fields for mapping 2. all the remaining fields #}
@@ -34,6 +33,8 @@
             value_name='fieldvalue'
         ) }}
 
+    {%- set stringmap_columns = adapter.get_columns_in_relation(source('dynamics_365_crm', 'stringmap')) | map(attribute='name') | list -%}
+    {%- set attribute_column = 'renamed_attributename' if 'renamed_attributename' in stringmap_columns else 'attributename' -%}
     ), stringmaps as (
         select
             stringmapid,
