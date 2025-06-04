@@ -9,6 +9,7 @@
     - `msdyn_customerasset`
     - `msdyn_workorderproduct`
     - `msdyn_workorder`
+- Updated the `string_mapping` macro to prefer the `renamed_attributename` field, if available, over `attributename`. Fivetran introduced `renamed_attributename` to better align with the field values used in downstream tables, but `attributename` is still supported for backward compatibility.
 
 ## Under the Hood
 - Corrected the `enabled` YAML configuration for source definitions.
