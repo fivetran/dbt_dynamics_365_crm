@@ -1,3 +1,6 @@
+# dbt_dynamics_365_crm v0.1.0-b1
+- Test change
+
 # dbt_dynamics_365_crm v0.1.0-a2
 
 [PR #3](https://github.com/fivetran/dbt_dynamics_365_crm/pull/3) includes the following updates:
