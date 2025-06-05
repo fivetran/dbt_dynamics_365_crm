@@ -13,6 +13,8 @@
 
 ## Under the Hood
 - Corrected the `enabled` YAML configuration for source definitions.
+- Updated the `auto-release` workflow to the current version.
+- Added the `generate-docs` workflow.
 
 # dbt_dynamics_365_crm v0.1.0-a2
 
