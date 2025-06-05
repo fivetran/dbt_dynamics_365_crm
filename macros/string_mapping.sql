@@ -9,8 +9,7 @@
     {%- set attributes = dbt_utils.get_column_values(
         table=source('dynamics_365_crm', 'stringmap'),
         where="lower(objecttypecode) = '" ~ table_name ~ "'",
-        column='attributename'
-        ) -%}
+        column='attributename') -%}
 
     {# Create two lists: 1. fields for mapping 2. all the remaining fields #}
     {%- set fields = [] -%}
