@@ -1,24 +1,30 @@
-stringmapid,_fivetran_deleted,attributename,attributevalue,objecttypecode,value
-123,FALSE,name01,10,account,Readable Name 01
-123,FALSE,name02,11,account,Readable Name 02
-124,FALSE,name01,12,appointment,Readable Name 03
-124,FALSE,name02,13,appointment,Readable Name 04
-125,FALSE,name01,14,contact,Readable Name 05
-130,FALSE,name02,15,contact,Readable Name 06
-126,FALSE,name01,16,incident,Readable Name 07
-131,FALSE,name02,17,incident,Readable Name 08
-127,FALSE,name01,18,opportunity,Readable Name 09
-132,TRUE,name02,19,opportunity,Readable Name 10
-128,FALSE,name01,20,phonecall,Readable Name 11
-128,FALSE,name02,21,phonecall,Readable Name 12
-130,FALSE,email_assignee,24,email,New Assignee
-135,FALSE,email_assignee,30,email,A different assignee
-130,FALSE,email_reason,25,email,Email reason here
-136,FALSE,email_reason,31,email,Other email reason here
-131,FALSE,task_status,26,task,In Progress
-133,FALSE,task_status,28,task,In Review
-134,FALSE,task_status,29,task,Blocked
-132,FALSE,task_type,27,task,Task type here
-137,FALSE,task_type,32,task,Other Task type
-129,FALSE,name01,22,systemuser,Readable Name 13
-129,FALSE,name02,23,systemuser,Readable Name 14
+stringmapid,_fivetran_deleted,attributename,attributevalue,objecttypecode,value,renamed_attributename
+123,FALSE,name01,10,account,Readable Name 01,name01
+123,FALSE,name02,11,account,Readable Name 02,name02
+124,FALSE,name01,12,appointment,Readable Name 03,name01
+124,FALSE,name02,13,appointment,Readable Name 04,name02
+125,FALSE,name01,14,contact,Readable Name 05,name01
+130,FALSE,name02,15,contact,Readable Name 06,name02
+126,FALSE,name01,16,incident,Readable Name 07,name01
+131,FALSE,name02,17,incident,Readable Name 08,name02
+127,FALSE,name01,18,opportunity,Readable Name 09,name01
+132,TRUE,name02,19,opportunity,Readable Name 10,name02
+128,FALSE,name01,20,phonecall,Readable Name 11,name01
+128,FALSE,name02,21,phonecall,Readable Name 12,name02
+130,FALSE,email_assignee,24,email,New Assignee,email_assignee
+135,FALSE,email_assignee,30,email,A different assignee,email_assignee
+130,FALSE,email_reason,25,email,Email reason here,email_reason
+136,FALSE,email_reason,31,email,Other email reason here,email_reason
+131,FALSE,task_status,26,task,In Progress,task_status
+133,FALSE,task_status,28,task,In Review,task_status
+134,FALSE,task_status,29,task,Blocked,task_status
+132,FALSE,task_type,27,task,Task type here,task_type
+137,FALSE,task_type,32,task,Other Task type,task_type
+129,FALSE,name01,22,systemuser,Readable Name 13,name01
+129,FALSE,name02,23,systemuser,Readable Name 14,name02
+138,FALSE,name01,15,msdyn_workorder,Readable Name 15,name01
+139,FALSE,name02,14,msdyn_workorder,Readable Name 16,name02
+140,FALSE,name01,16,msdyn_customerasset,Readable Name 17,name01
+141,FALSE,name02,17,msdyn_customerasset,Readable Name 18,name02
+142,FALSE,name01,36,msdyn_workorderproduct,Readable Name 19,name01
+143,FALSE,name02,67,msdyn_workorderproduct,Readable Name 20,name02

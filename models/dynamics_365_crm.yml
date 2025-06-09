@@ -7,15 +7,21 @@ models:
     description: "Model representing appointments in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
   - name: contact
     description: "Model for contacts in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
+  - name: email
+    description: "Model for emails in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
   - name: incident
-    description: "Model for incidents in Dynamics 365 CRM, , enriched with human-readable column names for fields with corresponding stringmap values."
+    description: "Model for incidents in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
+  - name: msdyn_customerasset
+    description: "Model for customer assets in Dynamics 365 Field Service, enriched with human-readable column names for fields with corresponding stringmap values."
+  - name: msdyn_workorder
+    description: "Model for work orders in Dynamics 365 Field Service, enriched with human-readable column names for fields with corresponding stringmap values."
+  - name: msdyn_workorderproduct
+    description: "Model for work order products in Dynamics 365 Field Service, enriched with human-readable column names for fields with corresponding stringmap values."
   - name: opportunity
     description: "Model for opportunities in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
   - name: phonecall
     description: "Model for phone calls in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
-  - name: email
-    description: "Model for emails in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
-  - name: task
-    description: "Model for tasks in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
   - name: systemuser
     description: "Model for system users in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
+  - name: task
+    description: "Model for tasks in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."

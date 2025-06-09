@@ -6,10 +6,12 @@
     {{ config(enabled=var('dynamics_365_crm_using_' ~ table_name, True)) }}
     {%- set columns = adapter.get_columns_in_relation(source('dynamics_365_crm', table_name)) -%}
     {# Retrieves the attribute names available for the subject table #}
+    {%- set stringmap_columns = adapter.get_columns_in_relation(source('dynamics_365_crm', 'stringmap')) | map(attribute='name') | map('lower') | list -%}
+    {%- set attribute_column = 'renamed_attributename' if 'renamed_attributename' in stringmap_columns else 'attributename' -%}
     {%- set attributes = dbt_utils.get_column_values(
         table=source('dynamics_365_crm', 'stringmap'),
         where="lower(objecttypecode) = '" ~ table_name ~ "'",
-        column='attributename') -%}
+        column=attribute_column) -%}
 
     {# Create two lists: 1. fields for mapping 2. all the remaining fields #}
     {%- set fields = [] -%}
@@ -36,7 +38,7 @@
         select
             stringmapid,
             cast(attributevalue as {{ dbt.type_int() }}) as attributevalue,
-            cast(attributename as {{ dbt.type_string() }}) as attributename,
+            cast({{ attribute_column }} as {{ dbt.type_string() }}) as attributename,
             cast(objecttypecode as {{ dbt.type_string() }}) as objecttypecode,
             cast(value as {{ dbt.type_string()}}) as stringmap_value
         from {{ source('dynamics_365_crm', 'stringmap')}}
