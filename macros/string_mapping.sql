@@ -28,6 +28,7 @@
         select *
         from {{ source('dynamics_365_crm', table_name) }}
     
+    -- Select only the primary key to shorten the compiled query--rejoin remaining fields later
     ), unpivoted as (
         {%- for field in fields -%}
         select
