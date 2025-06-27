@@ -1,8 +1,8 @@
-{% macro string_mapping(table_name) -%}
-    {{ return(adapter.dispatch('string_mapping', 'dynamics_365_crm')(table_name)) }}
+{% macro string_mapping(table_name, primary_key) -%}
+    {{ return(adapter.dispatch('string_mapping', 'dynamics_365_crm')(table_name, primary_key)) }}
 {% endmacro %}
 
-{% macro default__string_mapping(table_name) %}
+{% macro default__string_mapping(table_name, primary_key) %}
     {{ config(enabled=var('dynamics_365_crm_using_' ~ table_name, True)) }}
     {%- set columns = adapter.get_columns_in_relation(source('dynamics_365_crm', table_name)) -%}
     {# Retrieves the attribute names available for the subject table #}
@@ -24,15 +24,20 @@
         {%- endif -%}
     {%- endfor -%}
 
-    with unpivoted as (
-        -- Converting the subject table from wide to long format
-        {{ dbt_utils.unpivot(
-            relation=source('dynamics_365_crm', table_name),
-            cast_to=dbt.type_int(),
-            exclude=non_pivot_fields,
-            field_name='fieldname',
-            value_name='fieldvalue'
-        ) }}
+    with base as(
+        select *
+        from {{ source('dynamics_365_crm', table_name) }}
+    
+    ), unpivoted as (
+        {%- for field in fields -%}
+        select
+            {{ primary_key }},
+            cast('{{ field }}' as {{ dbt.type_string() }}) as fieldname,
+            cast({{ field }} as {{ dbt.type_int() }}) as fieldvalue
+        from base
+
+        {{ 'union all' if not loop.last }}
+        {% endfor %}
 
     ), stringmaps as (
         select
@@ -58,18 +63,19 @@
     ), repivoted as (
         -- convert back to wide format, now with the human readable columns
         select
-            {% for field in non_pivot_fields %}
-                {{ field }},
+            {% for non_pivot_field in non_pivot_fields -%}
+                base.{{ non_pivot_field }},
             {% endfor %}
-            {% for field in fields %}
-                max(case when lower(fieldname) = lower('{{ field }}') then fieldvalue else null end) as {{ field }},
-                max(case when lower(fieldname) = lower('{{ field }}') then fieldvalue_name else null end) as {{ field }}_label{{ ',' if not loop.last }}
+            {% for field in fields -%}
+                max(case when lower(joined.fieldname) = lower('{{ field }}') then joined.fieldvalue else null end) as {{ field }},
+                max(case when lower(joined.fieldname) = lower('{{ field }}') then joined.fieldvalue_name else null end) as {{ field }}_label{{ ',' if not loop.last }}
             {% endfor %}
         from joined
+        left join base
+            on joined.{{ primary_key }} = base.{{ primary_key }}
         {{ dbt_utils.group_by(non_pivot_fields|length) }}
-
     )
+
     select *
     from repivoted
-
 {% endmacro %}

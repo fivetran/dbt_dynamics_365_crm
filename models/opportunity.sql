@@ -1,1 +1,1 @@
-{{ dynamics_365_crm.string_mapping('opportunity') }}
+{{ dynamics_365_crm.string_mapping('opportunity', primary_key='opportunityid') }}

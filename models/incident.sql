@@ -1,1 +1,1 @@
-{{ dynamics_365_crm.string_mapping('incident') }}
+{{ dynamics_365_crm.string_mapping('incident', primary_key='incidentid') }}

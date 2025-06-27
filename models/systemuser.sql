@@ -1,1 +1,1 @@
-{{ dynamics_365_crm.string_mapping('systemuser') }}
+{{ dynamics_365_crm.string_mapping('systemuser', primary_key='ownerid') }}
