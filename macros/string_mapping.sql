@@ -1,8 +1,8 @@
-{% macro string_mapping(table_name, primary_key) -%}
-    {{ return(adapter.dispatch('string_mapping', 'dynamics_365_crm')(table_name, primary_key)) }}
+{% macro string_mapping(table_name, primary_key_field) -%}
+    {{ return(adapter.dispatch('string_mapping', 'dynamics_365_crm')(table_name, primary_key_field)) }}
 {% endmacro %}
 
-{% macro default__string_mapping(table_name, primary_key) %}
+{% macro default__string_mapping(table_name, primary_key_field) %}
     {{ config(enabled=var('dynamics_365_crm_using_' ~ table_name, True)) }}
     {%- set columns = adapter.get_columns_in_relation(source('dynamics_365_crm', table_name)) -%}
     {# Retrieves the attribute names available for the subject table #}
@@ -32,7 +32,7 @@
     ), unpivoted as (
         {%- for field in fields -%}
         select
-            {{ primary_key }},
+            {{ primary_key_field }},
             cast('{{ field }}' as {{ dbt.type_string() }}) as fieldname,
             cast({{ field }} as {{ dbt.type_int() }}) as fieldvalue
         from base
@@ -73,7 +73,7 @@
             {% endfor %}
         from joined
         left join base
-            on joined.{{ primary_key }} = base.{{ primary_key }}
+            on joined.{{ primary_key_field }} = base.{{ primary_key_field }}
         {{ dbt_utils.group_by(non_pivot_fields|length) }}
     )
 
