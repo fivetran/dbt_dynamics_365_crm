@@ -8,5 +8,6 @@ jobs:
   generate-docs:
     if: github.event.label.name == 'docs:ready'
     uses: fivetran/dbt_package_automations/.github/workflows/generate-docs.yml@feature/generate-docs
+    secrets: inherit
     with:
       schema_var_name: dynamics_365_crm_schema
