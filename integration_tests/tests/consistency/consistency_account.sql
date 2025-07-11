@@ -1,6 +1,6 @@
 {{ config(
     tags="fivetran_validations",
-    enabled=(var('fivetran_validation_tests_enabled', false) and ('dynamics_365_crm_using_account', true))
+    enabled=(var('fivetran_validation_tests_enabled', false) and var('dynamics_365_crm_using_account', true))
 ) }}
 
 with prod as (
