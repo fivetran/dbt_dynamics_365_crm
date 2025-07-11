@@ -1,3 +1,9 @@
+# dbt_dynamics_365_crm v0.1.0-b2
+[PR #7](https://github.com/fivetran/dbt_dynamics_365_crm/pull/7) includes the following updates:
+
+## Bug fixes
+- Updated the `string_mapping` macro to generate significantly fewer lines, reducing the risk for errors related to query length.
+
 # dbt_dynamics_365_crm v0.1.0-b1
 [PR #4](https://github.com/fivetran/dbt_dynamics_365_crm/pull/4) includes the following updates:
 
