@@ -1,1 +1,1 @@
-{{ dynamics_365_crm.string_mapping('msdyn_workorderproduct', primary_key='msdyn_workorderproductid') }}
+{{ dynamics_365_crm.string_mapping(table_name='msdyn_workorderproduct', primary_key='msdyn_workorderproductid') }}

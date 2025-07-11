@@ -1,1 +1,1 @@
-{{ dynamics_365_crm.string_mapping('appointment', primary_key='activityid') }}
+{{ dynamics_365_crm.string_mapping(table_name='appointment', primary_key='activityid') }}
