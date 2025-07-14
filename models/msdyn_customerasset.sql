@@ -1,1 +1,1 @@
-{{ dynamics_365_crm.string_mapping('msdyn_customerasset') }}
+{{ dynamics_365_crm.string_mapping(table_name='msdyn_customerasset', primary_key='msdyn_customerassetid') }}
