@@ -24,3 +24,10 @@ vars:
 
 models:
   +schema: "dynamics_365_crm_{{ var('directed_schema','dev') }}"
+seeds:
+  +docs:
+    show: False
+
+flags:
+  send_anonymous_usage_stats: False
+  use_colors: True
