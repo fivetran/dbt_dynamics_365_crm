@@ -4,7 +4,7 @@
 
 {% macro default__string_mapping(table_name, primary_key) %}
     {{ config(enabled=var('dynamics_365_crm_using_' ~ table_name, True)) }}
-    {%- set columns = adapter.get_columns_in_relation(source('dynamics_365_crm', table_name)) -%}
+    {%- set source_table_columns = adapter.get_columns_in_relation(source('dynamics_365_crm', table_name)) -%}
     {# Retrieves the attribute names available for the subject table #}
     {%- set stringmap_columns = adapter.get_columns_in_relation(source('dynamics_365_crm', 'stringmap')) | map(attribute='name') | map('lower') | list -%}
     {%- set attribute_column = 'renamed_attributename' if 'renamed_attributename' in stringmap_columns else 'attributename' -%}
@@ -14,23 +14,24 @@
         column=attribute_column) -%}
 
     {# Create two lists: 1. fields for mapping 2. all the remaining fields #}
-    {%- set fields = [] -%}
-    {%- set non_pivot_fields = [] -%}
-    {%- for col in columns -%}
+    {%- set mapping_fields = [] -%}
+    {%- set non_mapping_fields = [] -%}
+    {%- for col in source_table_columns -%}
         {%- if col.name | lower in attributes | map('lower') and not col.is_string() -%}
-            {%- do fields.append(col.name) -%}
+            {%- do mapping_fields.append(col.name) -%}
         {%- else -%}
-            {%- do non_pivot_fields.append(col.name) -%}
+            {%- do non_mapping_fields.append(col.name) -%}
         {%- endif -%}
     {%- endfor -%}
 
+    {% if mapping_fields | length > 0 %}
     with base as(
         select *
         from {{ source('dynamics_365_crm', table_name) }}
     
     -- Select only the primary key to shorten the compiled query--rejoin remaining fields later
     ), unpivoted as (
-        {%- for field in fields -%}
+        {%- for field in mapping_fields -%}
         select
             {{ primary_key }},
             cast('{{ field }}' as {{ dbt.type_string() }}) as fieldname,
@@ -64,19 +65,26 @@
     ), repivoted as (
         -- convert back to wide format, now with the human readable columns
         select
-            {% for non_pivot_field in non_pivot_fields -%}
-                base.{{ non_pivot_field }},
+            {% for field in non_mapping_fields -%}
+                base.{{ field }},
             {% endfor %}
-            {% for field in fields -%}
+            {% for field in mapping_fields -%}
                 max(case when lower(joined.fieldname) = lower('{{ field }}') then joined.fieldvalue else null end) as {{ field }},
                 max(case when lower(joined.fieldname) = lower('{{ field }}') then joined.fieldvalue_name else null end) as {{ field }}_label{{ ',' if not loop.last }}
             {% endfor %}
         from joined
         left join base
             on joined.{{ primary_key }} = base.{{ primary_key }}
-        {{ dbt_utils.group_by(non_pivot_fields|length) }}
+        {{ dbt_utils.group_by(non_mapping_fields|length) }}
     )
 
     select *
     from repivoted
+
+    {%- else -%}
+        {% set warning_message = '\n\n[WARNING] No mapping fields found in the ' ~ table_name|upper ~ ' source. Suggest disabling this model.\n' %}
+        {% do exceptions.warn(warning_message) if execute %}
+        select '{{ warning_message }}' as warning
+    {%- endif -%}
+
 {% endmacro %}
