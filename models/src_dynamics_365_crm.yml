@@ -6,13 +6,13 @@ sources:
     schema: "{{ var('dynamics_365_crm_schema', 'dynamics_365')}}"
 
     loader: fivetran
-    loaded_at_field: _fivetran_synced
 
     tables:
       - name: account
         identifier: "{{ var('dynamics_365_crm_account_identifier', 'account') }}"
         description: "Table containing businesses that represent customers or potential customers. Includes information about the companies billed in business transactions."
         config:
+          loaded_at_field: _fivetran_synced
           enabled: "{{ var('dynamics_365_crm_using_account', true) }}"
       - name: appointment
         identifier: "{{ var('dynamics_365_crm_appointment_identifier', 'appointment') }}"

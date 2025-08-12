@@ -1,3 +1,13 @@
+# dbt_dynamics_365_crm v0.2.0
+[PR #12](https://github.com/fivetran/dbt_dynamics_365_crm/pull/12) includes the following updates:
+
+### dbt Fusion Compatibility Updates
+- Updated package to maintain compatibility with dbt-core versions both before and after v1.10.6, which introduced a breaking change to multi-argument test syntax (e.g., `unique_combination_of_columns`).
+- Temporarily removed unsupported tests to avoid errors and ensure smoother upgrades across different dbt-core versions. These tests will be reintroduced once a safe migration path is available.
+  - Removed all `dbt_utils.unique_combination_of_columns` tests.
+  - Removed all accepted_values tests.
+  - Moved `loaded_at_field: _fivetran_synced` under the `config:` block in `src_dynamics_365_crm.yml`.
+
 # dbt_dynamics_365_crm v0.1.0-b2
 [PR #7](https://github.com/fivetran/dbt_dynamics_365_crm/pull/7) includes the following updates:
 
