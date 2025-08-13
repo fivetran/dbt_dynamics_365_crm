@@ -1,4 +1,4 @@
-# dbt_dynamics_365_crm v0.2.0
+# dbt_dynamics_365_crm v0.2.0-a1
 [PR #12](https://github.com/fivetran/dbt_dynamics_365_crm/pull/12) includes the following updates:
 
 ### dbt Fusion Compatibility Updates
