@@ -1,4 +1,4 @@
-# dbt_dynamics_365_crm v0.2.0-a1
+# dbt_dynamics_365_crm v0.1.0-b3
 [PR #12](https://github.com/fivetran/dbt_dynamics_365_crm/pull/12) includes the following updates:
 
 ### dbt Fusion Compatibility Updates
@@ -8,7 +8,6 @@
 ### Under the Hood
 - Updated conditions in `.github/workflows/auto-release.yml`.
 - Added `.github/workflows/generate-docs.yml`.
-
 
 # dbt_dynamics_365_crm v0.1.0-b2
 [PR #7](https://github.com/fivetran/dbt_dynamics_365_crm/pull/7) includes the following updates:
