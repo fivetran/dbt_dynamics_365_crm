@@ -1,5 +1,5 @@
 name: 'dynamics_365_crm_integration_tests'
-version: '0.1.0'
+version: '0.2.0'
 profile: 'integration_tests'
 config-version: 2
 
@@ -24,3 +24,10 @@ vars:
 
 models:
   +schema: "dynamics_365_crm_{{ var('directed_schema','dev') }}"
+seeds:
+  +docs:
+    show: False
+
+flags:
+  send_anonymous_usage_stats: False
+  use_colors: True

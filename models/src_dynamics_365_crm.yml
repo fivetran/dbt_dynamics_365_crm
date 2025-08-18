@@ -6,7 +6,8 @@ sources:
     schema: "{{ var('dynamics_365_crm_schema', 'dynamics_365')}}"
 
     loader: fivetran
-    loaded_at_field: _fivetran_synced
+    config:
+      loaded_at_field: _fivetran_synced
 
     tables:
       - name: account
