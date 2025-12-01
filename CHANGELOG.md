@@ -1,9 +1,8 @@
-# dbt_dynamics_365_crm v0.3.0
-
+# dbt_dynamics_365_crm v0.1.0-b4
 [PR #14](https://github.com/fivetran/dbt_dynamics_365_crm/pull/14) includes the following updates:
 
 ## Features
-  - Increases the required dbt version upper limit to v3.0.0
+- Increases the required dbt version upper limit to v3.0.0.
 
 # dbt_dynamics_365_crm v0.1.0-b3
 [PR #12](https://github.com/fivetran/dbt_dynamics_365_crm/pull/12) includes the following updates:
