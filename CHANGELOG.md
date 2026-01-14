@@ -1,3 +1,15 @@
+# dbt_dynamics_365_crm v0.2.0
+
+[PR #15](https://github.com/fivetran/dbt_dynamics_365_crm/pull/15) includes the following updates:
+
+## Documentation
+- Updates README with standardized Fivetran formatting
+
+## Under the Hood
+- In the `.quickstart.yml` file:
+  - Adds `table_variables` for relevant sources to prevent missing sources from blocking downstream Quickstart models.
+  - Adds `supported_vars` for Quickstart UI customization,
+
 # dbt_dynamics_365_crm v0.1.0-b4
 [PR #14](https://github.com/fivetran/dbt_dynamics_365_crm/pull/14) includes the following updates:
 
