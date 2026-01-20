@@ -1,5 +1,5 @@
 <!--section="dynamics-365-crm_transformation_model"-->
-# Dynamics 365 Crm dbt Package
+# Microsoft Dynamics 365 CRM dbt Package
 
 <p align="left">
     <a alt="License"
@@ -16,14 +16,14 @@
         <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
 
-This dbt package transforms data from Fivetran's Dynamics 365 Crm connector into analytics-ready tables.
+This dbt package transforms data from Fivetran's Microsoft Dynamics 365 CRM connector into analytics-ready tables.
 
 ## Resources
 
-- Number of materialized models¹: 7
+- Number of materialized models¹: 12
 - Connector documentation
-  - [Dynamics 365 Crm connector documentation](https://fivetran.com/docs/connectors/applications/dynamics-365-crm)
-  - [Dynamics 365 Crm ERD](https://fivetran.com/docs/connectors/applications/dynamics-365-crm#schemainformation)
+  - [Dynamics 365 CRM connector documentation](https://fivetran.com/docs/connectors/applications/dynamics-365-crm)
+  - [Dynamics 365 CRM ERD](https://fivetran.com/docs/connectors/applications/dynamics-365-crm#schemainformation)
 - dbt package documentation
   - [GitHub repository](https://github.com/fivetran/dbt_dynamics_365_crm)
   - [dbt Docs](https://fivetran.github.io/dbt_dynamics_365_crm/#!/overview)
@@ -65,7 +65,7 @@ By default, this package materializes the following final tables:
 ## Prerequisites
 To use this dbt package, you must have the following:
 
-- At least one Fivetran Dynamics 365 Crm connection syncing data into your destination.
+- At least one Fivetran Dynamics 365 CRM connection syncing data into your destination.
 - A **BigQuery**, **Snowflake**, **Redshift**, **Databricks**, or **PostgreSQL** destination.
 
 ## How do I use the dbt package?
