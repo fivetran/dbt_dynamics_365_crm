@@ -1,4 +1,5 @@
-# Microsoft Dynamics 365 CRM dbt Package ([Docs](https://fivetran.github.io/dbt_dynamics_365_crm/))
+<!--section="dynamics-365-crm_transformation_model"-->
+# Microsoft Dynamics 365 CRM dbt Package
 
 <p align="left">
     <a alt="License"
@@ -11,22 +12,40 @@
     <a alt="PRs">
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
     <a alt="Fivetran Quickstart Compatible"
-        href="https://fivetran.com/docs/transformations/dbt/quickstart">
+        href="https://fivetran.com/docs/transformations/data-models/quickstart-management#quickstartmanagement">
         <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
 
+This dbt package transforms data from Fivetran's Microsoft Dynamics 365 CRM connector into analytics-ready tables.
+
+## Resources
+
+- Number of materialized models¹: 12
+- Connector documentation
+  - [Dynamics 365 CRM connector documentation](https://fivetran.com/docs/connectors/applications/dynamics-365-crm)
+  - [Dynamics 365 CRM ERD](https://fivetran.com/docs/connectors/applications/dynamics-365-crm#schemainformation)
+- dbt package documentation
+  - [GitHub repository](https://github.com/fivetran/dbt_dynamics_365_crm)
+  - [dbt Docs](https://fivetran.github.io/dbt_dynamics_365_crm/#!/overview)
+  - [DAG](https://fivetran.github.io/dbt_dynamics_365_crm/#!/overview?g_v=1)
+  - [Changelog](https://github.com/fivetran/dbt_dynamics_365_crm/blob/main/CHANGELOG.md)
+
 ## What does this dbt package do?
+This package enables you to enhance Microsoft Dynamics 365 CRM data by adding human-readable labels for coded values and integrate stringmaps into source tables. It creates enriched models with metrics focused on translating codes into meaningful labels for better data analysis.
 
-This package models Microsoft Dynamics 365 CRM data from [Fivetran's connector](https://fivetran.com/docs/applications/microsoft-dynamics/dynamics365crm). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/microsoft-dynamics/dynamics365crm#schemainformation).
+### Output schema
+Final output tables are generated in the following target schema:
 
-The main focus of the package is to enhance the Microsoft Dynamics 365 CRM data by adding human-readable labels for fields (created as `<field_name>_label`) that store coded values (e.g., integer codes or option sets). This package integrates stringmaps into the source tables, translating codes into meaningful labels.
+```
+<your_database>.<connector/schema_name>_dynamics_365_crm
+```
 
-<!--section="dynamics_365_crm_transformation_model"-->
-The following table provides a detailed list of all models materialized within this package by default.
-> TIP: See more details about these tables in the package's [dbt docs site](https://fivetran.github.io/dbt_dynamics_365_crm/#!/overview).
+### Final output tables
 
-| **Table** | **Description** |
-| --------- | --------------- |
+By default, this package materializes the following final tables:
+
+| Table | Description |
+| :---- | :---- |
 | [`account`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.account) | Model representing accounts in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap labels created as `<field_name>_label`. |
 | [`appointment`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.appointment) | Model representing appointments in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
 | [`contact`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.contact) | Model for contacts in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
@@ -40,18 +59,31 @@ The following table provides a detailed list of all models materialized within t
 | [`systemuser`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.systemuser) | Model for system users in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
 | [`task`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.task) | Model for tasks in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
 
-### Materialized Models
-Each Quickstart transformation job run materializes 7 models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
+¹ Each Quickstart transformation job run materializes these models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
+---
+
+## Prerequisites
+To use this dbt package, you must have the following:
+
+- At least one Fivetran Dynamics 365 CRM connection syncing data into your destination.
+- A **BigQuery**, **Snowflake**, **Redshift**, **Databricks**, or **PostgreSQL** destination.
+
+## How do I use the dbt package?
+You can either add this dbt package in the Fivetran dashboard or import it into your dbt project:
+
+- To add the package in the Fivetran dashboard, follow our [Quickstart guide](https://fivetran.com/docs/transformations/data-models/quickstart-management).
+- To add the package to your dbt project, follow the setup instructions in the dbt package's [README file](https://github.com/fivetran/dbt_dynamics_365_crm/blob/main/README.md#how-do-i-use-the-dbt-package) to use this package.
 
 <!--section-end-->
 
-## How do I use the dbt package?
-
-### Step 1: Prerequisites
-To use this dbt package, you must have the following:
-
-- At least one Fivetran Microsoft Dynamics 365 CRM connection syncing data into your destination.
-- A **BigQuery**, **Snowflake**, **Redshift**, **Databricks**, or **PostgreSQL** destination.
+### Install the package
+Include the following Microsoft Dynamics 365 CRM package version in your `packages.yml` file:
+> TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
+```yml
+packages:
+  - package: fivetran/dynamics_365_crm
+    version: 0.1.0-b4
+```
 
 #### Databricks dispatch configuration
 If you are using a Databricks destination with this package, you must add the following (or a variation of the following) dispatch configuration within your `dbt_project.yml`. This is required in order for the package to accurately search for macros within the `dbt-labs/spark_utils` then the `dbt-labs/dbt_utils` packages respectively.
@@ -61,16 +93,7 @@ dispatch:
     search_order: ['spark_utils', 'dbt_utils']
 ```
 
-### Step 2: Install the package
-Include the following Microsoft Dynamics 365 CRM package version in your `packages.yml` file:
-> TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
-```yml
-packages:
-  - package: fivetran/dynamics_365_crm
-    version: 0.1.0-b4
-```
-
-### Step 3: Define database and schema variables
+### Define database and schema variables
 
 By default, this package runs using your destination and the `dynamics_365` schema. If this is not where your Microsoft Dynamics 365 CRM data is (for example, if your Microsoft Dynamics 365 CRM schema is named `dynamics_365_crm_fivetran`), add the following configuration to your root `dbt_project.yml` file:
 
@@ -80,7 +103,7 @@ vars:
   dynamics_365_crm_schema: your_schema_name 
 ```
 
-### Step 4: Enable/Disable Variables
+### Enable/Disable Variables
 By default, this package brings in data from the Microsoft Dynamics 365 CRM source tables listed in [`models/src_dynamics_365_crm.yml`](https://github.com/fivetran/dbt_dynamics_365_crm/blob/main/models/src_dynamics_365_crm.yml). However, if you have disabled syncing any of these sources, you will need to add the following configuration to your `dbt_project.yml`:
 
 ```yml
@@ -88,7 +111,7 @@ vars:
     dynamics_365_crm_using_<default_source_table_name>: false # default = true
 ```
 
-### (Optional) Step 5: Additional configurations
+### (Optional) Additional configurations
 <details open><summary>Expand/Collapse details</summary>
 
 #### Changing the Build Schema
@@ -109,11 +132,11 @@ vars:
 ```
 </details>
 
-### (Optional) Step 6: Orchestrate your models with Fivetran Transformations for dbt Core™
+### (Optional) Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand for details</summary>
 <br>
 
-Fivetran offers the ability for you to orchestrate your dbt project through [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt). Learn how to set up your project for orchestration through Fivetran in our [Transformations for dbt Core setup guides](https://fivetran.com/docs/transformations/dbt#setupguide).
+Fivetran offers the ability for you to orchestrate your dbt project through [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt#transformationsfordbtcore). Learn how to set up your project for orchestration through Fivetran in our [Transformations for dbt Core setup guides](https://fivetran.com/docs/transformations/dbt/setup-guide#transformationsfordbtcoresetupguide).
 </details>
 
 ## Does this package have dependencies?
@@ -125,14 +148,19 @@ packages:
   - package: dbt-labs/dbt_utils
     version: [">=1.0.0", "<2.0.0"]
 ```
+
+<!--section="dynamics-365-crm_maintenance"-->
 ## How is this package maintained and can I contribute?
+
 ### Package Maintenance
-The Fivetran team maintaining this package _only_ maintains the latest version of the package. We highly recommend you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/dynamics_365_crm/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_dynamics_365_crm/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
+The Fivetran team maintaining this package only maintains the [latest version](https://hub.getdbt.com/fivetran/dynamics_365_crm/latest/) of the package. We highly recommend you stay consistent with the latest version of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_dynamics_365_crm/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
 
 ### Contributions
 A small team of analytics engineers at Fivetran develops these dbt packages. However, the packages are made better by community contributions.
 
-We highly encourage and welcome contributions to this package. Check out [this dbt Discourse article](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) on the best workflow for contributing to a package.
+We highly encourage and welcome contributions to this package. Learn how to contribute to a package in dbt's [Contributing to an external dbt package article](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657).
+
+<!--section-end-->
 
 ## Are there any resources available?
 - If you have questions or want to reach out for help, see the [GitHub Issue](https://github.com/fivetran/dbt_dynamics_365_crm/issues/new/choose) section to find the right avenue of support for you.
