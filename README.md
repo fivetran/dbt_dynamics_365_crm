@@ -22,8 +22,8 @@ This dbt package transforms data from Fivetran's Microsoft Dynamics 365 CRM conn
 
 - Number of materialized models¹: 12
 - Connector documentation
-  - [Dynamics 365 CRM connector documentation](https://fivetran.com/docs/connectors/applications/dynamics-365-crm)
-  - [Dynamics 365 CRM ERD](https://fivetran.com/docs/connectors/applications/dynamics-365-crm#schemainformation)
+  - [Dynamics 365 CRM connector documentation](https://fivetran.com/docs/connectors/applications/microsoft-dynamics/dynamics365crm)
+  - [Dynamics 365 CRM ERD](https://fivetran.com/docs/connectors/applications/microsoft-dynamics/dynamics365crm#schemainformation)
 - dbt package documentation
   - [GitHub repository](https://github.com/fivetran/dbt_dynamics_365_crm)
   - [dbt Docs](https://fivetran.github.io/dbt_dynamics_365_crm/#!/overview)
