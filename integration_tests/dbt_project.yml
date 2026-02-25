@@ -23,6 +23,9 @@ vars:
     dynamics_365_crm_task_identifier: "task_data"
 
 models:
+  +persist_docs:
+    relation: true
+    columns: true
   +schema: "dynamics_365_crm_{{ var('directed_schema','dev') }}"
 seeds:
   +docs:
