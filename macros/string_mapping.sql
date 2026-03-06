@@ -24,6 +24,7 @@
         {%- endif -%}
     {%- endfor -%}
 
+    {% if fields | length > 0 %}
     with base as(
         select *
         from {{ source('dynamics_365_crm', table_name) }}
@@ -79,4 +80,11 @@
 
     select *
     from repivoted
+
+    {% else %}
+
+    select *
+    from {{ source('dynamics_365_crm', table_name) }}
+
+    {% endif %}
 {% endmacro %}
