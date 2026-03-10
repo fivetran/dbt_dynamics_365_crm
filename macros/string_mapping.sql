@@ -83,8 +83,9 @@
 
     {% else %}
 
-    select *
-    from {{ source('dynamics_365_crm', table_name) }}
+        {% set warning_message = '\n\n[WARNING] No mapping fields were found in the ' ~ table_name|upper ~ ' source. Consider disabling this model. \n' %}
+        {% do exceptions.warn(warning_message) if execute %}
+        select '{{ warning_message }}' as warning
 
     {% endif %}
 {% endmacro %}
