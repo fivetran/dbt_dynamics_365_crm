@@ -24,6 +24,7 @@
         {%- endif -%}
     {%- endfor -%}
 
+    {% if fields | length > 0 %}
     with base as(
         select *
         from {{ source('dynamics_365_crm', table_name) }}
@@ -74,9 +75,17 @@
         from joined
         left join base
             on joined.{{ primary_key }} = base.{{ primary_key }}
-        {{ dbt_utils.group_by(non_pivot_fields|length) }}
+        {{ dbt_utils.group_by(non_pivot_fields | length) }}
     )
 
     select *
     from repivoted
+
+    {% else %}
+
+        {% set warning_message = '\n\n[WARNING] Table ' ~ table_name|upper ~ ' has no columns that require label mapping  string mapping was skipped. This is expected for some tables and no action is needed. This model will be automatically paused after a few runs to avoid unnecessary executions. It will resume on the next full refresh. \n' %}
+        {% do exceptions.warn(warning_message) if execute %}
+        select '''{{ warning_message }}''' as warning
+
+    {% endif %}
 {% endmacro %}
