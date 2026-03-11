@@ -83,9 +83,9 @@
 
     {% else %}
 
-        {% set warning_message = '\n\n[WARNING] Table ' ~ table_name|upper ~ ' has no columns that require label mapping — string mapping was skipped. This is expected for some tables and no action is needed. This model will be automatically paused after a few runs to avoid unnecessary executions. It will resume on the next full refresh. \n' %}
+        {% set warning_message = '\n\n[WARNING] Table ' ~ table_name|upper ~ ' has no columns that require label mapping  string mapping was skipped. This is expected for some tables and no action is needed. This model will be automatically paused after a few runs to avoid unnecessary executions. It will resume on the next full refresh. \n' %}
         {% do exceptions.warn(warning_message) if execute %}
-        select '{{ warning_message }}' as warning
+        select '''{{ warning_message }}''' as warning
 
     {% endif %}
 {% endmacro %}
