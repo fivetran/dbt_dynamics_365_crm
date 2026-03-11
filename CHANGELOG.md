@@ -7,6 +7,9 @@ This release marks the transition from beta to general availability.
 ## Bug Fix
 - Updates the `string_mapping` macro to pass a warning in cases where no mapping fields are found.
 
+## Under the Hood
+- Updates integration tests and seed data to test when no string mapping fields are found.
+
 # dbt_dynamics_365_crm v0.1.0-b4
 [PR #14](https://github.com/fivetran/dbt_dynamics_365_crm/pull/14) includes the following updates:
 
