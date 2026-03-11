@@ -75,7 +75,7 @@
         from joined
         left join base
             on joined.{{ primary_key }} = base.{{ primary_key }}
-        {{ dbt_utils.group_by(non_pivot_fields|length) }}
+        {{ dbt_utils.group_by(non_pivot_fields | length) }}
     )
 
     select *
