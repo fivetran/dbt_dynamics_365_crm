@@ -85,7 +85,7 @@
 
         {% set quickstart_message = '\n\n[WARNING] Table ' ~ table_name|upper ~ ' has no columns that require label mapping  string mapping was skipped. This is expected for some tables and no action is needed. This model will be automatically paused after a few runs to avoid unnecessary executions. It will resume on the next full refresh. \n' %}
         {% set dbt_core_message = '\n\n[WARNING] No mapping fields were found in the ' ~ table_name|upper ~ ' source. Consider disabling this model. \n' %}
-        {% set warning_message = quickstart_message if run_mode = 'quickstart' else dbt_core_message %}
+        {% set warning_message = quickstart_message if run_mode == 'quickstart' else dbt_core_message %}
 
         {% do exceptions.warn(warning_message) if execute %}
         select '''{{ warning_message }}''' as warning
