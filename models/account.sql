@@ -1,1 +1,1 @@
-{{ dynamics_365_crm.string_mapping(table_name='account', primary_key='accountid', run_mode='dbt_core', run_mode='dbt_core' }}
+{{ dynamics_365_crm.string_mapping(table_name='account', primary_key='accountid', run_mode='dbt_core', run_mode='dbt_core') }}
