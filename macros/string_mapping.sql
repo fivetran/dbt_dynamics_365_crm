@@ -1,8 +1,8 @@
-{% macro string_mapping(table_name, primary_key) -%}
-    {{ return(adapter.dispatch('string_mapping', 'dynamics_365_crm')(table_name, primary_key)) }}
+{% macro string_mapping(table_name, primary_key, run_mode='quickstart') -%}
+    {{ return(adapter.dispatch('string_mapping', 'dynamics_365_crm')(table_name, primary_key, run_mode)) }}
 {% endmacro %}
 
-{% macro default__string_mapping(table_name, primary_key) %}
+{% macro default__string_mapping(table_name, primary_key, run_mode='quickstart') %}
     {{ config(enabled=var('dynamics_365_crm_using_' ~ table_name, True)) }}
     {%- set columns = adapter.get_columns_in_relation(source('dynamics_365_crm', table_name)) -%}
     {# Retrieves the attribute names available for the subject table #}
@@ -83,7 +83,10 @@
 
     {% else %}
 
-        {% set warning_message = '\n\n[WARNING] Table ' ~ table_name|upper ~ ' has no columns that require label mapping  string mapping was skipped. This is expected for some tables and no action is needed. This model will be automatically paused after a few runs to avoid unnecessary executions. It will resume on the next full refresh. \n' %}
+        {% set quickstart_message = '\n\n[WARNING] Table ' ~ table_name|upper ~ ' has no columns that require label mapping  string mapping was skipped. This is expected for some tables and no action is needed. This model will be automatically paused after a few runs to avoid unnecessary executions. It will resume on the next full refresh. \n' %}
+        {% set dbt_core_message = '\n\n[WARNING] No mapping fields were found in the ' ~ table_name|upper ~ ' source. Consider disabling this model. \n' %}
+        {% set warning_message = quickstart_message if run_mode = 'quickstart' else dbt_core_message %}
+
         {% do exceptions.warn(warning_message) if execute %}
         select '''{{ warning_message }}''' as warning
 
