@@ -47,6 +47,7 @@ By default, this package materializes the following final tables:
 | [`task`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.task) | Model for tasks in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
 
 ¹ Each Quickstart transformation job run materializes these models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
+
 ---
 
 ## Prerequisites
@@ -69,7 +70,7 @@ Include the following Microsoft Dynamics 365 CRM package version in your `packag
 ```yml
 packages:
   - package: fivetran/dynamics_365_crm
-    version: 0.1.0-b4
+    version: 0.1.0
 ```
 
 #### Databricks dispatch configuration

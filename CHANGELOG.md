@@ -1,9 +1,6 @@
 # dbt_dynamics_365_crm v0.1.0
 [PR #18](https://github.com/fivetran/dbt_dynamics_365_crm/pull/18) includes the following updates:
 
-## General Availability Release
-This release marks the transition from beta to general availability.
-
 ## Bug Fix
 - Updates the `string_mapping` macro to pass a warning in cases where no mapping fields are found.
 
