@@ -70,7 +70,7 @@ Include the following Microsoft Dynamics 365 CRM package version in your `packag
 ```yml
 packages:
   - package: fivetran/dynamics_365_crm
-    version: 0.1.0
+    version: 0.2.0-a1
 ```
 
 #### Databricks dispatch configuration
