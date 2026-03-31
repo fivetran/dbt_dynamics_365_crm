@@ -17,7 +17,7 @@
     {%- set fields = [] -%}
     {%- set non_pivot_fields = [] -%}
     {%- for col in columns -%}
-        {%- if col.name | lower in attributes | map('lower') and not col.is_string() -%}
+        {%- if col.name | lower in attributes | map('lower') and col.is_number() -%}
             {%- do fields.append(col.name) -%}
         {%- else -%}
             {%- do non_pivot_fields.append(col.name) -%}
