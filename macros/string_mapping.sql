@@ -17,10 +17,10 @@
     {%- set fields = [] -%}
     {%- set non_pivot_fields = [] -%}
     {%- for col in columns -%}
-        {% set is_number = col.data_type|lower in ('int', 'bigint') if target.type == 'databricks' else col.is_number() %}
+        {% set is_integer = 'int' in col.data_type|lower if target.type == 'databricks' else col.is_number() %}
         -- for debugging purposes, to be removed later
-        {{ print('Column: ' ~ col.name ~ ' | Data Type: ' ~ col.data_type ~ ' | Is Number: ' ~ is_number) if col.name | lower in attributes | map('lower') }}
-        {%- if col.name | lower in attributes | map('lower') and is_number -%}
+        {{ print('Column: ' ~ col.name ~ ' | Data Type: ' ~ col.data_type ~ ' | Is Integer: ' ~ is_integer) }}
+        {%- if col.name | lower in attributes | map('lower') and is_integer -%}
             {%- do fields.append(col.name) -%}
         {%- else -%}
             {%- do non_pivot_fields.append(col.name) -%}
