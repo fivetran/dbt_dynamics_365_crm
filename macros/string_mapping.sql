@@ -17,8 +17,19 @@
     {%- set fields = [] -%}
     {%- set non_pivot_fields = [] -%}
     {%- for col in columns -%}
-        {% set is_integer = 'int' in col.data_type|lower if target.type == 'databricks' else col.is_number() %}
-        {%- if col.name | lower in attributes | map('lower') and is_integer -%}
+        {%- set data_type = col.data_type|lower %}
+        {# For Databricks, we use partial string matches since col.is_number() doesn't work as expected.
+            We want partial matches to catch types like int2, int4, bigint, float4, double precision, etc. #}
+        {%- set is_number = ('int' in data_type
+            or 'float' in data_type
+            or 'numeric' in data_type
+            or 'decimal' in data_type
+            or 'serial' in data_type
+            or 'real' in data_type
+            or 'double' in data_type
+        ) if target.type == 'databricks' else col.is_number() -%}
+
+        {%- if col.name | lower in attributes | map('lower') and is_number -%}
             {%- do fields.append(col.name) -%}
         {%- else -%}
             {%- do non_pivot_fields.append(col.name) -%}
