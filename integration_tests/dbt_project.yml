@@ -27,7 +27,7 @@ models:
     relation: true
     columns: "{{ false if target.type in ('databricks') else true }}"
   +schema: "dynamics_365_crm_{{ var('directed_schema','dev') }}"
-  # This seed is just for testing andshould be disabled when generating docs.
+  # This seed is only for testing and should be disabled when generating docs.
   # appointment_no_maps_data: # @docs-include
     # +enabled: false # @docs-include
 
