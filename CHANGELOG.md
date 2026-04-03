@@ -1,3 +1,12 @@
+# dbt_dynamics_365_crm v0.2.0
+[PR #19](https://github.com/fivetran/dbt_dynamics_365_crm/pull/19) includes the following updates:
+
+## Bug Fix
+- Fixes Databricks compatibility issue in the `string_mapping` macro by matching on explicit datatype names instead of `col.is_number()`.
+
+## Under the Hood
+- Updates integration test seed data to include additional test scenarios for the improved string mapping logic.
+
 # dbt_dynamics_365_crm v0.2.0-a2
 [PR #19](https://github.com/fivetran/dbt_dynamics_365_crm/pull/19) includes the following updates:
 
