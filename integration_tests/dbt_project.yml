@@ -5,7 +5,7 @@ config-version: 2
 
 vars:
   # Generate docs using "dbt docs generate --empty-catalog", so seed dummy columns are not listed
-  dynamics_365_crm_schema: dynamics_365_crm_integration_tests
+  dynamics_365_crm_schema: zz_dbt_catherine #dynamics_365_crm_integration_tests
 
   dynamics_365_crm:
     dynamics_365_crm_account_identifier: "account_data"
@@ -27,6 +27,7 @@ models:
     relation: true
     columns: "{{ false if target.type in ('databricks') else true }}"
   +schema: "dynamics_365_crm_{{ var('directed_schema','dev') }}"
+  # This seed is just for testing andshould be disabled when generating docs.
   # appointment_no_maps_data: # @docs-include
     # +enabled: false # @docs-include
 
