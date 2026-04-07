@@ -28,3 +28,4 @@ stringmapid,_fivetran_deleted,attributename,attributevalue,objecttypecode,value,
 141,FALSE,name02,17,msdyn_customerasset,Readable Name 18,name02
 142,FALSE,name01,36,msdyn_workorderproduct,Readable Name 19,name01
 143,FALSE,name02,67,msdyn_workorderproduct,Readable Name 20,name02
+143,FALSE,name03,67,account,Readable Name 21,name03
