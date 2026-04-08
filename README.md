@@ -5,7 +5,7 @@ This dbt package transforms data from Fivetran's Microsoft Dynamics 365 CRM conn
 
 ## Resources
 
-- Number of materialized models¹: 12 (for dbt Core users)
+- Number of materialized models¹: varies for Quickstart users, 12 for dbt Core users
 - Connector documentation
   - [Dynamics 365 CRM connector documentation](https://fivetran.com/docs/connectors/applications/microsoft-dynamics/dynamics365crm)
   - [Dynamics 365 CRM ERD](https://fivetran.com/docs/connectors/applications/microsoft-dynamics/dynamics365crm#schemainformation)
@@ -60,6 +60,8 @@ By default, this package materializes the following final tables for dbt Core us
 | [`phonecall`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.phonecall) | Model for phone calls in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
 | [`systemuser`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.systemuser) | Model for system users in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
 | [`task`](https://fivetran.github.io/dbt_dynamics_365_crm/#!/model/model.dynamics_365_crm.task) | Model for tasks in Dynamics 365 CRM, enriched with human-readable column names for fields with stringmap labels created as `<field_name>_label`. |
+
+> **Note:** To extend beyond these standard models and create custom stringmapped models for your organization's specific entities, see the [Additional configurations](#optional-additional-configurations) section below.
 
 ¹ Each dbt Core transformation job run materializes these models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`. For Quickstart users, the number of models will vary based on dynamic model generation.
 
@@ -133,6 +135,21 @@ If an individual source table has a different name than the package expects, add
 vars:
     dynamics_365_crm_<default_source_table_name>_identifier: your_table_name 
 ```
+
+#### Adding Custom Models (dbt Core Users)
+To map custom entities, create string-mapped models using the `dynamics_365_crm.string_mapping` macro. Define one model per source table and include the `string_mapping` macro:
+
+```sql
+-- models/my_custom_entity.sql
+{{
+    dynamics_365_crm.string_mapping(
+        table_name: 'my_custom_entity',
+        primary_key: 'my_custom_entityid',
+        run_mode: 'standard'
+    )
+}}
+```
+
 </details>
 
 ### (Optional) Orchestrate your models with Fivetran Transformations for dbt Core™
