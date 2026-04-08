@@ -5,7 +5,9 @@ This dbt package transforms data from Fivetran's Microsoft Dynamics 365 CRM conn
 
 ## Resources
 
-- Number of materialized models¹: varies for Quickstart users, 12 for dbt Core users
+- Number of materialized models¹:
+  - Quickstart users: varies (one model per source table in your Dynamics 365 CRM connection)
+  - dbt Core users: 12
 - Connector documentation
   - [Dynamics 365 CRM connector documentation](https://fivetran.com/docs/connectors/applications/microsoft-dynamics/dynamics365crm)
   - [Dynamics 365 CRM ERD](https://fivetran.com/docs/connectors/applications/microsoft-dynamics/dynamics365crm#schemainformation)
@@ -38,7 +40,7 @@ When using Fivetran Quickstart, this package utilizes **dynamic model generation
 | :---- | :---- |
 | `<your_source_table_name>` | Each source table from your Dynamics 365 CRM instance, enriched with human-readable labels for coded fields. Stringmap labels are added as `<field_name>_label` columns alongside the original coded values. |
 
-**Example:** If your Dynamics 365 CRM instance has tables like `account`, `contact`, `custom_entity_abc`, and `opportunity`, you'll get corresponding enriched models: `account`, `contact`, `custom_entity_abc`, and `opportunity`,  each with stringmap labels applied where available.
+**Example:** If your Dynamics 365 CRM instance has tables like `account`, `contact`, `custom_entity_abc`, and `opportunity`, you'll get corresponding enriched models: `account`, `contact`, `custom_entity_abc`, and `opportunity`, each with stringmap labels applied where available.
 
 > **Note:** Quickstart users may or may not have the standard tables listed below, as their models are generated dynamically based on their specific Dynamics 365 CRM setup and enabled entities.
 
@@ -137,7 +139,10 @@ vars:
 ```
 
 #### Adding Custom Models (dbt Core Users)
-To map custom entities, create string-mapped models using the `dynamics_365_crm.string_mapping` macro. Define one model per source table and include the `string_mapping` macro:
+To map custom entities with the `dynamics_365_crm.string_mapping` macro:
+
+1. **Define the source table** in your project’s source YAML
+2. **Create a model** using the `dynamics_365_crm.string_mapping` macro (one per source table) and include the `string_mapping` macro:
 
 ```sql
 -- models/my_custom_entity.sql
