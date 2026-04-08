@@ -5,7 +5,7 @@
 - Updates package configuration and documentation to support dynamic model generation for Quickstart users, while preserving compatibility with dbt Core workflows.
 
 ## Documentation
-- Reorganizes the README to distinguish Quickstart (dynamic model generation) and dbt Core (standard model) usage.
+- Reorganizes the README to distinguish between Quickstart (dynamic model generation) and dbt Core (standard model) usage.
 - Adds guidance for dbt Core users on creating custom string-mapped models using the `string_mapping` macro. See the [README](https://github.com/fivetran/dbt_dynamics_365_crm/blob/main/README.md#adding-custom-models-dbt-core-users) for details.
 
 ## Under the Hood
