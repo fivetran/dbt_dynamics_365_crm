@@ -31,7 +31,14 @@ Final output tables are generated in the following target schema:
 
 #### For Quickstart Users
 
-When using Fivetran Quickstart, this package utilizes **dynamic model generation** based on your specific Dynamics 365 CRM configuration. The models created will be tailored to the entities and tables available in your Dynamics 365 CRM instance. 
+When using Fivetran Quickstart, this package utilizes **dynamic model generation** based on your specific Dynamics 365 CRM configuration. **For each source table in your Dynamics 365 CRM instance, a corresponding enriched model will be created** with stringmap labels applied.
+
+**Dynamic Model Structure:**
+| Output Model | Description |
+| :---- | :---- |
+| `<your_source_table_name>` | Each source table from your Dynamics 365 CRM instance, enriched with human-readable labels for coded fields. Stringmap labels are added as `<field_name>_label` columns alongside the original coded values. |
+
+**Example:** If your Dynamics 365 CRM instance has tables like `account`, `contact`, `custom_entity_abc`, and `opportunity`, you'll get corresponding enriched models: `account`, `contact`, `custom_entity_abc`, and `opportunity` - each with stringmap labels applied where available.
 
 > **Note:** Quickstart users may or may not have the standard tables listed below, as their models are generated dynamically based on their specific Dynamics 365 CRM setup and enabled entities.
 
