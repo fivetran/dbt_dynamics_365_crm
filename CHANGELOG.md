@@ -1,3 +1,16 @@
+# dbt_dynamics_365_crm v0.3.0
+[PR #20](https://github.com/fivetran/dbt_dynamics_365_crm/pull/20) includes the following updates:
+
+## Feature Update
+- Updates package configuration and documentation to support dynamic model generation for Quickstart users, while preserving compatibility with dbt Core workflows.
+
+## Documentation
+- Reorganizes the README to distinguish Quickstart (dynamic model generation) and dbt Core (standard model) usage.
+- Adds guidance for dbt Core users on creating custom string-mapped models using the `string_mapping` macro. See the [README](https://github.com/fivetran/dbt_dynamics_365_crm/blob/main/README.md#adding-custom-models-dbt-core-users) for details.
+
+## Under the Hood
+- Removes preset model configurations (`table_variables`, `public_models`) from `.quickstart/quickstart.yml` to support dynamic model generation for Quickstart users.
+
 # dbt_dynamics_365_crm v0.2.0
 [PR #19](https://github.com/fivetran/dbt_dynamics_365_crm/pull/19) includes the following updates:
 
