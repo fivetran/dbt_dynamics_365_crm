@@ -17,9 +17,9 @@ test_scenarios:
     vars: {}
     include_incremental: false
 
-  - name: "appointment no maps data"
+  - name: "APPOINTMENT with no string-mappable columns"
     vars:
-      dynamics_365_crm_appointment_identifier: "appointment_no_maps_data"
+      test_nostringmaps: true
       dynamics_365_crm_using_contact: false
       dynamics_365_crm_using_phonecall: false
       dynamics_365_crm_using_task: false
