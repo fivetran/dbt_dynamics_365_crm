@@ -1,3 +1,7 @@
+# dbt_dynamics_365_crm v0.4.0
+[PR #21](https://github.com/fivetran/dbt_dynamics_365_crm/pull/21) includes the following updates:
+
+
 # dbt_dynamics_365_crm v0.3.0
 [PR #20](https://github.com/fivetran/dbt_dynamics_365_crm/pull/20) includes the following updates:
 
