@@ -1,8 +1,8 @@
-{% macro string_mapping(table_name, primary_key) -%}
-    {{ return(adapter.dispatch('string_mapping', 'dynamics_365_crm')(table_name, primary_key)) }}
+{% macro string_mapping(table_name, primary_key, run_mode='quickstart') -%}
+    {{ return(adapter.dispatch('string_mapping', 'dynamics_365_crm')(table_name, primary_key, run_mode)) }}
 {% endmacro %}
 
-{% macro default__string_mapping(table_name, primary_key) %}
+{% macro default__string_mapping(table_name, primary_key, run_mode='quickstart') %}
     {{ config(enabled=var('dynamics_365_crm_using_' ~ table_name, True)) }}
     {%- set columns = adapter.get_columns_in_relation(source('dynamics_365_crm', table_name)) -%}
     {# Retrieves the attribute names available for the subject table #}
@@ -93,7 +93,7 @@
     select *
     from repivoted
 
-    {% else %}
+    {%- else %}
 
         select *
         from {{ source('dynamics_365_crm', table_name) }}
