@@ -33,9 +33,9 @@ seeds:
     show: False
   dynamics_365_crm_integration_tests:
     appointment_data:
-      +enabled: "{{ false if var('test_nostringmaps', false) else true }}"
+      +enabled: "{{ not var('test_nostringmaps', false)}}"
     appointment_no_maps_data:
-      +enabled: "{{ true if var('test_nostringmaps', false) else false }}"
+      +enabled: "{{ var('test_nostringmaps', false) }}"
       +alias: "appointment_data"
 
 flags:
