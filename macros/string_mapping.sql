@@ -1,9 +1,12 @@
-{% macro string_mapping(table_name, primary_key, run_mode='quickstart') -%}
+{% macro string_mapping(table_name, primary_key, run_mode=none) -%}
     {{ return(adapter.dispatch('string_mapping', 'dynamics_365_crm')(table_name, primary_key, run_mode)) }}
 {% endmacro %}
 
-{% macro default__string_mapping(table_name, primary_key, run_mode='quickstart') %}
+{% macro default__string_mapping(table_name, primary_key, run_mode=none) %}
     {{ config(enabled=var('dynamics_365_crm_using_' ~ table_name, True)) }}
+    {% if run_mode is not none %}
+        {% do exceptions.warn("The `run_mode` argument in `string_mapping` is deprecated and no longer has any effect. It will be removed in a future release.") if execute %}
+    {% endif %}
     {%- set columns = adapter.get_columns_in_relation(source('dynamics_365_crm', table_name)) -%}
     {# Retrieves the attribute names available for the subject table #}
     {%- set stringmap_columns = adapter.get_columns_in_relation(source('dynamics_365_crm', 'stringmap')) | map(attribute='name') | map('lower') | list -%}
@@ -36,6 +39,7 @@
         {%- endif -%}
     {%- endfor -%}
 
+    {# Only pivot/unpivot if there's at least one column to map. Otherwise pass the source through unchanged #}
     {% if fields | length > 0 %}
     with base as(
         select *
@@ -95,6 +99,7 @@
 
     {%- else %}
 
+        {# When no columns to string map, pass the source through unchanged #}
         select *
         from {{ source('dynamics_365_crm', table_name) }}
 
