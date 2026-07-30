@@ -24,3 +24,4 @@ test_scenarios:
       dynamics_365_crm_using_phonecall: false
       dynamics_365_crm_using_task: false
     include_incremental: false
+    include_dbt_seed: true
