@@ -9,7 +9,7 @@
 | **BREAKING**: `account`, `appointment`, `contact`, `email`, `incident`, `msdyn_customerasset`, `msdyn_workorder`, `msdyn_workorderproduct`, `opportunity`, `phonecall`, `systemuser`, `task` | Changed field/model | When a source table had no columns requiring string mapping, the model returned a single `warning` column with a static message. | The model now returns the full source table unchanged when no columns require string mapping. | |
 
 ## Deprecation
-- * The `string_mapping` macro’s `run_mode` argument is now deprecated and no longer has any effect. Passing it will produce a warning. Remove it from any custom `string_mapping()` calls.
+- The `string_mapping` macro’s `run_mode` argument is now deprecated and no longer has any effect. Passing it will produce a warning. Remove it from any custom `string_mapping()` calls.
 
 # dbt_dynamics_365_crm v0.3.0
 [PR #20](https://github.com/fivetran/dbt_dynamics_365_crm/pull/20) includes the following updates:
