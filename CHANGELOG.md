@@ -1,3 +1,10 @@
+# dbt_dynamics_365_crm v0.4.1
+
+[PR #24](https://github.com/fivetran/dbt_dynamics_365_crm/pull/24) includes the following updates:
+
+## Feature Updates
+- Adds DuckDB as a supported destination.
+
 # dbt_dynamics_365_crm v0.4.0
 [PR #23](https://github.com/fivetran/dbt_dynamics_365_crm/pull/23) includes the following updates:
 
