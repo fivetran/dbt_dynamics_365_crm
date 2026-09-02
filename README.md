@@ -6,8 +6,8 @@ This dbt package transforms data from Fivetran's Microsoft Dynamics 365 CRM conn
 ## Resources
 
 - Number of materialized models¹:
-  - Quickstart users: varies (one model per source table in your Dynamics 365 CRM connection)
-  - dbt Core users: 12
+  - Quickstart: varies (one model per source table in your Dynamics 365 CRM connection)
+  - dbt Core: 12
 - Connector documentation
   - [Dynamics 365 CRM connector documentation](https://fivetran.com/docs/connectors/applications/microsoft-dynamics/dynamics365crm)
   - [Dynamics 365 CRM ERD](https://fivetran.com/docs/connectors/applications/microsoft-dynamics/dynamics365crm#schemainformation)
@@ -31,7 +31,7 @@ Final output tables are generated in the following target schema:
 
 ### Final output tables
 
-#### For Quickstart Users
+#### For Quickstart
 
 When using Fivetran Quickstart, this package utilizes **dynamic model generation** based on your specific Dynamics 365 CRM configuration. **For each source table in your Dynamics 365 CRM instance, a corresponding enriched model will be created** with stringmap labels applied.
 
@@ -42,11 +42,11 @@ When using Fivetran Quickstart, this package utilizes **dynamic model generation
 
 **Example:** If your Dynamics 365 CRM instance has tables like `account`, `contact`, `custom_entity_abc`, and `opportunity`, you'll get corresponding enriched models: `account`, `contact`, `custom_entity_abc`, and `opportunity`, each with stringmap labels applied where available.
 
-> **Note:** Quickstart users may or may not have the standard tables listed below, as their models are generated dynamically based on their specific Dynamics 365 CRM setup and enabled entities.
+> **Note:** Quickstart may or may not have the standard tables listed below, as their models are generated dynamically based on their specific Dynamics 365 CRM setup and enabled entities.
 
-#### For dbt Core Users
+#### For dbt Core
 
-By default, this package materializes the following final tables for dbt Core users:
+By default, this package materializes the following final tables for dbt Core:
 
 | Table | Description |
 | :---- | :---- |
@@ -65,7 +65,7 @@ By default, this package materializes the following final tables for dbt Core us
 
 > **Note:** To extend beyond these standard models and create custom stringmapped models for your organization's specific entities, see the [Additional configurations](#optional-additional-configurations) section below.
 
-¹ Each dbt Core transformation job run materializes these models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`. For Quickstart users, the number of models will vary based on dynamic model generation.
+¹ Each dbt Core transformation job run materializes these models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`. For Quickstart, the number of models will vary based on dynamic model generation.
 
 ---
 
@@ -138,7 +138,7 @@ vars:
     dynamics_365_crm_<default_source_table_name>_identifier: your_table_name 
 ```
 
-#### Adding Custom Models (dbt Core Users)
+#### Adding Custom Models (dbt Core)
 To map custom entities with the `dynamics_365_crm.string_mapping` macro:
 
 1. **Define the source table** in your project’s source YAML
