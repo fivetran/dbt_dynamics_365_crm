@@ -141,7 +141,7 @@ vars:
 #### Adding Custom Models (dbt Core)
 To map custom entities with the `dynamics_365_crm.string_mapping` macro:
 
-1. **Define the source table** in your project’s source YAML
+1. **Define the source table** in your project's source YAML
 2. **Create a model** using the `dynamics_365_crm.string_mapping` macro (one per source table) and include the `string_mapping` macro:
 
 ```sql
@@ -182,7 +182,7 @@ The Fivetran team maintaining this package only maintains the [latest version](h
 ### Contributions
 A small team of analytics engineers at Fivetran develops these dbt packages. However, the packages are made better by community contributions.
 
-We highly encourage and welcome contributions to this package. Learn how to contribute to a package in dbt's [Contributing to an external dbt package article](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657).
+We highly encourage and welcome contributions to this package. Learn how to contribute to a package by reading the guidelines in our [CONTRIBUTING.md](https://github.com/fivetran/dbt_dynamics_365_crm/blob/main/CONTRIBUTING.md) document.
 
 <!--section-end-->
 
