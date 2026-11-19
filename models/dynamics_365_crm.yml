@@ -3,85 +3,85 @@ version: 2
 models:
   - name: account
     description: "Model representing accounts in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          arguments:
-            combination_of_columns:
-              - accountid
+    columns:
+      - name: accountid
+        description: "Primary key of the `account` model."
+        data_tests:
+          - unique
   - name: appointment
     description: "Model representing appointments in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          arguments:
-            combination_of_columns:
-              - activityid
+    columns:
+      - name: activityid
+        description: "Primary key of the `appointment` model."
+        data_tests:
+          - unique
   - name: contact
     description: "Model for contacts in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          arguments:
-            combination_of_columns:
-              - contactid
+    columns:
+      - name: contactid
+        description: "Primary key of the `contact` model."
+        data_tests:
+          - unique
   - name: email
     description: "Model for emails in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          arguments:
-            combination_of_columns:
-              - activityid
+    columns:
+      - name: activityid
+        description: "Primary key of the `email` model."
+        data_tests:
+          - unique
   - name: incident
     description: "Model for incidents in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          arguments:
-            combination_of_columns:
-              - incidentid
+    columns:
+      - name: incidentid
+        description: "Primary key of the `incident` model."
+        data_tests:
+          - unique
   - name: msdyn_customerasset
     description: "Model for customer assets in Dynamics 365 Field Service, enriched with human-readable column names for fields with corresponding stringmap values."
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          arguments:
-            combination_of_columns:
-              - msdyn_customerassetid
+    columns:
+      - name: msdyn_customerassetid
+        description: "Primary key of the `msdyn_customerasset` model."
+        data_tests:
+          - unique
   - name: msdyn_workorder
     description: "Model for work orders in Dynamics 365 Field Service, enriched with human-readable column names for fields with corresponding stringmap values."
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          arguments:
-            combination_of_columns:
-              - msdyn_workorderid
+    columns:
+      - name: msdyn_workorderid
+        description: "Primary key of the `msdyn_workorder` model."
+        data_tests:
+          - unique
   - name: msdyn_workorderproduct
     description: "Model for work order products in Dynamics 365 Field Service, enriched with human-readable column names for fields with corresponding stringmap values."
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          arguments:
-            combination_of_columns:
-              - msdyn_workorderproductid
+    columns:
+      - name: msdyn_workorderproductid
+        description: "Primary key of the `msdyn_workorderproduct` model."
+        data_tests:
+          - unique
   - name: opportunity
     description: "Model for opportunities in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          arguments:
-            combination_of_columns:
-              - opportunityid
+    columns:
+      - name: opportunityid
+        description: "Primary key of the `opportunity` model."
+        data_tests:
+          - unique
   - name: phonecall
     description: "Model for phone calls in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          arguments:
-            combination_of_columns:
-              - activityid
+    columns:
+      - name: activityid
+        description: "Primary key of the `phonecall` model."
+        data_tests:
+          - unique
   - name: systemuser
     description: "Model for system users in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          arguments:
-            combination_of_columns:
-              - ownerid
+    columns:
+      - name: ownerid
+        description: "Primary key of the `systemuser` model."
+        data_tests:
+          - unique
   - name: task
     description: "Model for tasks in Dynamics 365 CRM, enriched with human-readable column names for fields with corresponding stringmap values."
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          arguments:
-            combination_of_columns:
-              - activityid
+    columns:
+      - name: activityid
+        description: "Primary key of the `task` model."
+        data_tests:
+          - unique
