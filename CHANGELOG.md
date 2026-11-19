@@ -4,7 +4,7 @@
 
 ## Feature Update
 - Raises the minimum dbt version to 1.10.0.
-- Adds `dbt_utils.unique_combination_of_columns` tests to staging and end models. If a test fails, please [open an issue](https://github.com/fivetran/dbt_dynamics_365_crm/issues/new/choose).
+- Adds a `unique` test on the primary key of each model. If a test fails, please [open an issue](https://github.com/fivetran/dbt_dynamics_365_crm/issues/new/choose).
 
 # dbt_dynamics_365_crm v0.4.1
 
